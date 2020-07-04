@@ -1,0 +1,22 @@
+.page-main-title {
+  font-size: 6.5rem;
+  color: white;
+  line-height: 7rem;
+  text-transform: uppercase;
+}
+.page-sub-title {
+  color: white;
+  font-size: 2rem;
+}
+.subtitle-medium {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.purple {
+  color: #941b80;
+}
+
+.page-title-medium {
+  color: white;
+  font-size: 3rem;
+}

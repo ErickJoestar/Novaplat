@@ -1,0 +1,37 @@
+.form__error {
+  color: rgb(235, 45, 45);
+  font-size: 1.1rem;
+  display: inline;
+}
+
+.input__outline {
+  border: 2px solid white;
+  border-radius: 3px;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  outline: none !important;
+  background-color: transparent;
+}
+
+.input__outline::placeholder {
+  outline: none !important;
+  color: rgba(255, 255, 255, 0.438);
+}
+
+.disable-auto-styles input:-webkit-autofill,
+.disable-auto-styles input:-webkit-autofill:hover,
+.disable-auto-styles input:-webkit-autofill:focus,
+.disable-auto-styles textarea:-webkit-autofill,
+.disable-auto-styles textarea:-webkit-autofill:hover,
+.disable-auto-styles textarea:-webkit-autofill:focus,
+.disable-auto-styles select:-webkit-autofill,
+.disable-auto-styles select:-webkit-autofill:hover,
+.disable-auto-styles select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent;
+  outline: none;
+  color: white !important;
+}
