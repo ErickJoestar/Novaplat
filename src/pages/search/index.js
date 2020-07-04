@@ -1,5 +1,7 @@
 import React from "react";
 
+import SearchComponent from "../../components/search-component";
+
 import bg_image from "../../assets/images/search-image.jpg";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 
@@ -7,10 +9,10 @@ import "./style.css";
 import "../../shared/colors.css";
 import "../../shared/fonts.css";
 
-import Button from "../../components/button";
-
 const SearchPage = () => {
-  const handleButtonClick = () => {};
+  const handleButtonClick = () => {
+    console.log("searching...");
+  };
   return (
     <div className="search-page">
       <img
@@ -28,21 +30,12 @@ const SearchPage = () => {
             Coloca las palabras claves en el buscador.
           </span>
         </div>
-        <div className="search__input-container">
-          <input
-            type="text"
-            className="search__input"
-            placeholder="Busca un lab aqui"
-          />
-          <Button
-            className="search__button"
-            gradient
-            lightOnHover
-            onClick={handleButtonClick}
-          >
-            <SearchIcon className="search-icon" />
-          </Button>
-        </div>
+        <SearchComponent
+          type="icon"
+          Icon={SearchIcon}
+          onClick={handleButtonClick}
+          placeholder="Busca un lab aqui"
+        />
       </div>
     </div>
   );

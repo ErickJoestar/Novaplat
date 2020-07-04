@@ -1,0 +1,11 @@
+.styled-container {
+  border-radius: 0 8px 0 8px;
+  background: white;
+  padding: 1rem;
+}
+
+.styled-container--back {
+  padding: 4px;
+  border-radius: 0 10px 0 10px;
+  display: inline-block;
+}

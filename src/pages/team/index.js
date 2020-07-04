@@ -1,5 +1,7 @@
 import React from "react";
 
+import Banner from "../../components/banner";
+
 import banner from "../../assets/images/nosotros-banner.jpg";
 import team from "../../assets/images/nosotros-team.jpg";
 
@@ -10,7 +12,7 @@ import "../../shared/fonts.css";
 const Team = () => {
   return (
     <div className="team">
-      <div className="team__banner">
+      {/* <div className="team__banner">
         <img src={banner} className="team__img" alt="" />
         <div className="team__text-container">
           <h2 className="page-main-title">
@@ -21,7 +23,14 @@ const Team = () => {
             proyectos a la realidad.
           </span>
         </div>
-      </div>
+      </div> */}
+      <Banner
+        image={banner}
+        title="Somos el puente a tus labs virtuales"
+        subtitle="Te ayudamos a localizar tu lab virtual que necesitas para llevar tus
+            proyectos a la realidad."
+        style={{ height: "60rem" }}
+      />
       <section>
         <div className="team__about">
           <h3 className="subtitle-medium purple">¡Bienvenido a novaplat!</h3>
