@@ -1,0 +1,127 @@
+.auth-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-areas: "logo ." ". content" ". change";
+  padding: 5rem;
+}
+
+.auth_banner {
+  width: 100%;
+  margin-right: 0;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-100%, -50%);
+  z-index: -1;
+}
+.auth-logo {
+  grid-area: logo;
+  width: 20rem;
+  display: block;
+  margin-left: 10rem;
+}
+.auth-container {
+  text-align: center;
+  grid-area: content;
+  width: max-content;
+  justify-self: center;
+  align-self: center;
+  height: min-content;
+  z-index: 10;
+}
+
+.auth__field-container {
+  height: 4rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.auth_change {
+  grid-area: change;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth_change > span {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.auth__change__button {
+  width: 15rem;
+}
+
+.auth__input {
+  width: 40rem;
+}
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.auth__form__error {
+  color: white !important;
+}
+.auth__input-radio__container {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.auth__input-radio__container:hover {
+  cursor: pointer;
+}
+
+.auth__radio {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid white;
+  position: relative;
+  border-radius: 10rem;
+  display: inline-block;
+  margin-right: 1rem;
+}
+.auth__radio::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  transition: all 0.2s;
+  border-radius: 10rem;
+}
+.auth__radio--active::after {
+  background-color: white;
+}
+
+.auth__controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 1rem;
+}
+.auth__controls > a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}

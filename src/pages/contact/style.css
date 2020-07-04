@@ -1,0 +1,85 @@
+.contact__banner {
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  /* max-height: 60rem; */
+  min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact__img {
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 105%;
+  z-index: -1;
+  filter: brightness(0.8);
+}
+
+.contact__text-container {
+  width: 80rem;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+.contact__form {
+  align-self: flex-start;
+  justify-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 12rem;
+  margin-top: 10rem;
+}
+.contact__input {
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #aaa;
+  outline: none;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  height: 5rem;
+  resize: vertical;
+  max-height: 20rem;
+  min-height: 5rem;
+  width: 60rem;
+  font-family: "Poppins";
+  margin-top: 1rem;
+}
+.contact__input::placeholder {
+  color: rgb(209, 208, 208);
+}
+.contact-button {
+  margin-top: 2rem;
+  align-self: flex-end;
+  padding: 1rem 5rem !important;
+}
+
+.contact-error {
+  color: rgb(235, 45, 45);
+  font-size: 1.1rem;
+}
+.contact input:-webkit-autofill,
+.contact input:-webkit-autofill:hover,
+.contact input:-webkit-autofill:focus,
+.contact textarea:-webkit-autofill,
+.contact textarea:-webkit-autofill:hover,
+.contact textarea:-webkit-autofill:focus,
+.contact select:-webkit-autofill,
+.contact select:-webkit-autofill:hover,
+.contact select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #aaa;
+  outline: none;
+  color: white !important;
+}

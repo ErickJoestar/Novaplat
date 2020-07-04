@@ -1,0 +1,45 @@
+.team__banner {
+  overflow: hidden;
+  height: 75vh;
+  position: relative;
+  max-height: 60rem;
+  min-height: 30rem;
+}
+
+.team__img {
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  filter: brightness(0.8);
+}
+
+.team__text-container {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.team > section {
+  padding: 10rem 5rem;
+  width: 100%;
+  max-width: 110rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 5rem;
+}
+.team__about {
+  flex: 1;
+  font-size: 1.6rem;
+}
+
+.team__about-img {
+  flex: 1;
+  width: 100%;
+}
