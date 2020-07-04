@@ -17,12 +17,6 @@
   height: min-content;
   grid-area: logo;
 }
-
-.footer__icon__svg {
-  width: 100%;
-  height: 100%;
-  fill: white;
-}
 .footer__list {
   grid-area: list;
   padding: 2rem;
