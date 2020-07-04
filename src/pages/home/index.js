@@ -7,10 +7,13 @@ import Button from "../../components/button";
 
 import homeBanner from "../../assets/images/home-banner.jpg";
 import homeBook from "../../assets/images/home-book.jpg";
+import homeChat from "../../assets/images/home-chat.jpg";
 
 import praxiLabs from "../../assets/images/Praxilabs.png";
 import coSpaces from "../../assets/images/CoSpaces.png";
 import tinkercad from "../../assets/images/Tinkercad.jpg";
+
+import { ReactComponent as GradientShaped } from "../../assets/icons/gradient-shaped-container.svg";
 
 import { ReactComponent as ScienceLogo } from "../../assets/icons/science.svg";
 import { ReactComponent as CodeLogo } from "../../assets/icons/code.svg";
@@ -140,7 +143,34 @@ const Home = () => {
           ))}
         </div>
       </section>
-      <section className="home__section home__section__secondary-banner"></section>
+      <section className="home__section home__section__secondary-banner">
+        <img
+          src={homeChat}
+          alt="Tres estudiantes platicando"
+          className="home__section__secondary-banner__img"
+        />
+        <div className="home__section__secondary-banner__text">
+          <span>
+            ¡SI,! PUEDES APRENDER
+            <br />
+            CUALQUIER COSA.
+            <br />
+          </span>
+          <span style={{ fontSize: "2.2rem", color: "white" }}>
+            -Bill Gates
+          </span>
+        </div>
+      </section>
+      <section className="home__section">
+        <div className="home__regitrate-container purple">
+          <GradientShaped className="home__regitrate-container__svg" />
+          <span>
+            Regístrate hoy,
+            <br />
+            ¡Es gratis!
+          </span>
+        </div>
+      </section>
     </main>
   );
 };

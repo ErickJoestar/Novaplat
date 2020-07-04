@@ -9,6 +9,7 @@ const StyledContainer = ({
   color,
   children,
   gradient,
+  innerStyle = {},
   ...props
 }) => {
   return (
@@ -16,7 +17,9 @@ const StyledContainer = ({
       className={`styled-container--back ${gradient ? "gradient-bg" : ""} `}
       style={color ? { ...style, background: color } : style}
     >
-      <div className={`styled-container ${className}`}>{children}</div>
+      <div className={`styled-container ${className}`} style={innerStyle}>
+        {children}
+      </div>
     </div>
   );
 };

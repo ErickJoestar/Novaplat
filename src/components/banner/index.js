@@ -12,6 +12,8 @@ const Banner = ({
   subtitle,
   imageClassName = "",
   imageStyle = {},
+  textClassName = "",
+  textStyle = {},
   ...props
 }) => {
   return (
@@ -22,7 +24,10 @@ const Banner = ({
         className={`banner-image ${imageClassName}`}
         alt={alt}
       />
-      <div className="banner__text-container">
+      <div
+        className={`banner__text-container ${textClassName}`}
+        style={textStyle}
+      >
         {title && <h3 className="page-main-title banner__title">{title}</h3>}
         {subtitle && <h4 className="page-sub-title">{subtitle}</h4>}
       </div>

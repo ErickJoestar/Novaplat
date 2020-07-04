@@ -7,6 +7,7 @@ import Contact from "./pages/contact";
 import Search from "./pages/search";
 import Team from "./pages/team";
 import AuthPage from "./pages/auth-page";
+import Learn from "./pages/learn";
 
 import DefaultView from "./views/default-view";
 
@@ -28,7 +29,6 @@ const App = () => {
               <Team />
             </DefaultView>
           </Route>
-
           <Route exact path="/contacto">
             <DefaultView selection="contact">
               <Contact />
@@ -41,7 +41,7 @@ const App = () => {
           </Route>
           <Route exact path="/aprender">
             <DefaultView selection="learn">
-              <Search />
+              <Learn />
             </DefaultView>
           </Route>
           <Route exact path="/login">

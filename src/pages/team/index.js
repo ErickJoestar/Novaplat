@@ -5,6 +5,8 @@ import Banner from "../../components/banner";
 import banner from "../../assets/images/nosotros-banner.jpg";
 import team from "../../assets/images/nosotros-team.jpg";
 
+import { BANNER_HEIGHT } from "../../shared/constants";
+
 import "./style.css";
 import "../../shared/colors.css";
 import "../../shared/fonts.css";
@@ -12,24 +14,12 @@ import "../../shared/fonts.css";
 const Team = () => {
   return (
     <div className="team">
-      {/* <div className="team__banner">
-        <img src={banner} className="team__img" alt="" />
-        <div className="team__text-container">
-          <h2 className="page-main-title">
-            Somos el puente a tus labs virtuales
-          </h2>
-          <span className="page-sub-title">
-            Te ayudamos a localizar tu lab virtual que necesitas para llevar tus
-            proyectos a la realidad.
-          </span>
-        </div>
-      </div> */}
       <Banner
         image={banner}
         title="Somos el puente a tus labs virtuales"
         subtitle="Te ayudamos a localizar tu lab virtual que necesitas para llevar tus
             proyectos a la realidad."
-        style={{ height: "60rem" }}
+        style={{ height: BANNER_HEIGHT }}
       />
       <section>
         <div className="team__about">
