@@ -1,0 +1,48 @@
+.footer {
+  padding: 4rem;
+}
+.footer__content {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: min-content max-content;
+  grid-template-areas: "logo list" "rights rights";
+  gap: 1rem;
+}
+
+.footer__icon {
+  width: 15rem;
+  height: min-content;
+  grid-area: logo;
+}
+
+.footer__icon__svg {
+  width: 100%;
+  height: 100%;
+  fill: white;
+}
+.footer__list {
+  grid-area: list;
+  padding: 2rem;
+  border-left: 1px solid white;
+  width: 30rem;
+  font-weight: 400;
+}
+.footer__list > li {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.footer__el {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+.footer__rights {
+  grid-area: rights;
+  justify-self: center;
+  font-size: 1.3rem;
+  color: white;
+}

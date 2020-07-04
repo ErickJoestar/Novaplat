@@ -1,0 +1,30 @@
+.button {
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-radius: 3px;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px #333;
+  outline: none !important;
+  border: none;
+}
+.button-shaped {
+  border-radius: 0 10px 0 10px;
+}
+.button:hover {
+  cursor: pointer;
+}
+.button-pop:hover {
+  transform: translateY(-1px);
+}
+.button-pop:active {
+  transform: translateY(-0.5px);
+}
+.button-light:hover {
+  filter: brightness(1.1);
+}
+.button-light:active {
+  filter: brightness(0.9);
+}
+.button-gradient {
+  color: white;
+}
