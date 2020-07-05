@@ -5,11 +5,12 @@ import "../../shared/colors.css";
 
 const StyledContainer = ({
   className = "",
-  style = {},
+  extStyle = {},
+  extClassName = "",
   color,
   children,
   gradient,
-  innerStyle = {},
+  style = {},
   expandOnHover,
   ...props
 }) => {
@@ -17,10 +18,10 @@ const StyledContainer = ({
     <div
       className={`styled-container--back ${gradient ? "gradient-bg" : ""} ${
         expandOnHover ? "styled-container--back--expand" : ""
-      }`}
+      } ${extClassName}`}
       style={color ? { ...style, background: color } : style}
     >
-      <div className={`styled-container ${className}`} style={innerStyle}>
+      <div className={`styled-container ${className}`} style={style}>
         {children}
       </div>
     </div>

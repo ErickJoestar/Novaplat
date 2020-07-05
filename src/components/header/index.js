@@ -15,15 +15,19 @@ const Header = ({ selection, ...props }) => {
       if (!scrolled && window.scrollY > 200) {
         setScrolled(true);
       } else if (scrolled && window.scrollY < 200) {
-        console.log("CHANGE");
         setScrolled(false);
       }
     };
-
     window.addEventListener("scroll", listener);
     return () => window.removeEventListener("scroll", listener);
   }, [scrolled]);
-  console.log(history);
+
+  useEffect(() => {
+    console.log("???");
+    window.scrollTo(0, 0);
+  }, [history.location.pathname]);
+
+  // console.log(history);
 
   return (
     <header className={`header ${scrolled ? "scrolled" : ""}`}>

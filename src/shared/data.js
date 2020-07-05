@@ -48,6 +48,8 @@ export const EXTERNAL_LABS = {
   },
 };
 
+const { praxiLabs, coSpaces, tinkerCad } = EXTERNAL_LABS;
+
 export const LABS_DATA = [
   {
     label: "Ciencias",
@@ -57,7 +59,7 @@ export const LABS_DATA = [
     bannerUrl: scienteBanner,
     description:
       "Simulaciones 3D para los principales experimentos de biología, química y física.",
-    labs: [{ ...EXTERNAL_LABS.praxiLabs }],
+    labs: [{ ...praxiLabs }],
   },
   {
     label: "Codificación",
@@ -66,6 +68,7 @@ export const LABS_DATA = [
     SvgComponent: CodeLogo,
     bannerUrl: codeBanner,
     description: "Lenguajes de script mediante sencillos bloques de código.",
+    labs: [{ ...coSpaces }, { ...tinkerCad }],
   },
   {
     label: "Diseño 3D",
@@ -74,6 +77,7 @@ export const LABS_DATA = [
     SvgComponent: Design3D,
     bannerUrl: design3dBanner,
     description: "Crea, diseña e imprime tus diseño 3D sin ser un experto.",
+    labs: [{ ...coSpaces }, { ...tinkerCad }],
   },
   {
     label: "Electrónica",
@@ -82,6 +86,7 @@ export const LABS_DATA = [
     SvgComponent: Electronics,
     bannerUrl: eletronicsBanner,
     description: "Diseña y programa circuitos electrónicos para tus proyectos.",
+    labs: [{ ...tinkerCad }],
   },
   {
     label: "Realidad Virtual",
@@ -91,6 +96,7 @@ export const LABS_DATA = [
     bannerUrl: virtualRelBanner,
     description:
       "Visualiza tus creaciones en un entorno de realidad virtual 360° y 3D.",
+    labs: [{ ...coSpaces }, { ...tinkerCad }],
   },
   {
     label: "Realidad Aumentada",
@@ -100,5 +106,6 @@ export const LABS_DATA = [
     bannerUrl: aumentedRelBanner,
     description:
       "Lleva tus diseños virtuales a la realidad mediante un proyector.",
+    labs: [{ ...coSpaces }, { ...tinkerCad }],
   },
 ];

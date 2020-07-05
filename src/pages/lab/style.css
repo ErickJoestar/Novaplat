@@ -1,8 +1,117 @@
 .lab__section {
-  display: grid;
-  grid-template-columns: min-content 1fr 1fr 1fr;
-  gap: 5rem;
   width: 100%;
   max-width: 120rem;
   margin: 10rem auto;
+  display: grid;
+  grid-template-columns: min-content 1fr 1fr 1fr;
+  grid-template-rows: min-content min-content;
+  grid-template-areas: "icon-area title title title" "icon-area ext ext ext";
+  gap: 6.8rem 5rem;
+}
+
+.lab__icon-container {
+  padding: 2rem 1rem;
+  width: 26rem;
+  height: 29.2rem;
+  text-align: center;
+  font-size: 1.8rem;
+  display: grid;
+  grid-template-rows: 11rem auto;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.lab__icon-container--ext {
+  grid-area: icon-area;
+  justify-self: start;
+  align-self: start;
+}
+
+.lab__icon-svg {
+  width: 10rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.lab__section__title {
+  grid-area: title;
+}
+
+.lab__section__title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 4rem;
+}
+
+.lab__grid {
+  grid-area: ext;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+}
+.lab__grid__el-container {
+  position: relative;
+}
+
+.lab__grid-el {
+  width: 22rem;
+  height: 14.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lab__grid-el__img {
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.lab__grid-el__plus {
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  transform: translateY(-100%);
+  background-color: blue;
+  margin-left: -1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10rem;
+  transition: all 0.2s;
+}
+
+.lab__grid-el__plus:hover {
+  transform: translateY(-100%) scale(1.05);
+  cursor: pointer;
+}
+
+.lab__grid-el__plus::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.7rem;
+  height: 4.5px;
+  background-color: white;
+  border-radius: 5px;
+}
+.lab__grid-el__plus::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 1.7rem;
+  width: 4.5px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* Ajustes menores */
+
+.lab__grid-el__img--tinkerCad {
+  height: auto;
+  width: 100%;
 }

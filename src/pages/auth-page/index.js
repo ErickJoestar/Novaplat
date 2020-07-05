@@ -16,13 +16,11 @@ const AuthPage = ({ type = "signup", ...props }) => {
   const [formType, setType] = useState(type);
   const [remember, setRemember] = useState(false);
 
-  console.log(type);
   const handleSubmit = (data) => {
     alert(JSON.stringify(data));
   };
 
   const handleTypeChange = () => {
-    console.log(formType);
     setType(formType === "login" ? "signup" : "login");
   };
 

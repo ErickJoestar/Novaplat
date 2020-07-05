@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Banner from "../../components/banner";
 import StyledContainer from "../../components/styled-container";
@@ -7,18 +7,67 @@ import { BANNER_HEIGHT } from "../../shared/constants";
 
 import "./style.css";
 import "../../shared/fonts.css";
-const Lab = (props) => {
-  console.log(props);
+const Lab = ({
+  label,
+  labs = [],
+  name,
+  SvgComponent,
+  bannerUrl,
+  title,
+  description,
+}) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleLabClick = (data) => {
+    console.log(data);
+    alert(`No pasa nada todavia :P, ${JSON.stringify(data)}`);
+  };
   return (
     <div className="lab-page">
       <Banner
-        image={props.bannerUrl}
+        image={bannerUrl}
         style={{ height: BANNER_HEIGHT }}
         textStyle={{ maxWidth: "100rem" }}
-        title={props.title}
+        title={title}
       />
       <section className="lab__section">
-        <StyledContainer gradient />
+        <StyledContainer
+          gradient
+          extClassName="lab__icon-container--ext"
+          className="lab__icon-container"
+        >
+          <SvgComponent className="lab__icon-svg" />
+          <p>{description}</p>
+        </StyledContainer>
+        <h3 className=" lab__section__title purple">
+          Labs Recomendados <br /> para este aprendizaje
+        </h3>
+        <div className="lab__grid">
+          {labs.map((data, i) => (
+            <div key={i} className="lab__grid__el-container">
+              <a href={data.url}>
+                <StyledContainer
+                  expandOnHover
+                  className="lab__grid-el"
+                  color={data.color}
+                >
+                  <img
+                    src={data.icon}
+                    alt={label}
+                    className={`lab__grid-el__img lab__grid-el__img--${data.name}`}
+                  />
+                </StyledContainer>
+              </a>
+              <div
+                className="lab__grid-el__plus"
+                style={{ background: data.color }}
+                onClick={() => handleLabClick(data)}
+              />
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );

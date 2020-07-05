@@ -15,7 +15,6 @@ import "../../shared/fonts.css";
 
 const Learn = () => {
   const { path } = useRouteMatch();
-  console.log(path);
   return (
     <div className="learn">
       <Switch>
@@ -37,9 +36,9 @@ const Learn = () => {
             <AreasGrid />
           </section>
         </Route>
-        {LABS_DATA.map((data) => {
+        {LABS_DATA.map((data, i) => {
           return (
-            <Route exact path={`${path}/${data.name}`}>
+            <Route key={i} exact path={`${path}/${data.name}`}>
               <Lab {...data} />
             </Route>
           );

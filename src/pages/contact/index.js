@@ -15,7 +15,6 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 const Contact = () => {
   const handleSumit = (values, { setSubmiting }) => {
     setTimeout(() => {
-      console.log(values);
       setSubmiting(false);
     }, 400);
   };

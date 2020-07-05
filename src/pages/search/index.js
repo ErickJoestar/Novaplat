@@ -10,9 +10,7 @@ import "../../shared/colors.css";
 import "../../shared/fonts.css";
 
 const SearchPage = () => {
-  const handleButtonClick = () => {
-    console.log("searching...");
-  };
+  const handleButtonClick = () => {};
   return (
     <div className="search-page">
       <img
