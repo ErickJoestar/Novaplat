@@ -11,3 +11,13 @@
   border-radius: 0 10px 0 10px;
   display: inline-block;
 }
+
+.styled-container--back--expand {
+  transition: all 0.2s;
+  box-shadow: 0 0 1 black;
+}
+
+.styled-container--back--expand:hover {
+  transform: scale(1.025);
+  box-shadow: 0 1px 5px rgba(39, 39, 39, 0.418);
+}

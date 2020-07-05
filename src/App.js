@@ -39,7 +39,7 @@ const App = () => {
               <Search />
             </DefaultView>
           </Route>
-          <Route exact path="/aprender">
+          <Route path="/aprender">
             <DefaultView selection="learn">
               <Learn />
             </DefaultView>

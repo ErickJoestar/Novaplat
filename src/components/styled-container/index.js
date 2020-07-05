@@ -10,11 +10,14 @@ const StyledContainer = ({
   children,
   gradient,
   innerStyle = {},
+  expandOnHover,
   ...props
 }) => {
   return (
     <div
-      className={`styled-container--back ${gradient ? "gradient-bg" : ""} `}
+      className={`styled-container--back ${gradient ? "gradient-bg" : ""} ${
+        expandOnHover ? "styled-container--back--expand" : ""
+      }`}
       style={color ? { ...style, background: color } : style}
     >
       <div className={`styled-container ${className}`} style={innerStyle}>
