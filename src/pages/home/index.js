@@ -10,14 +10,18 @@ import homeBanner from "../../assets/images/home-banner.jpg";
 import homeBook from "../../assets/images/home-book.jpg";
 import homeChat from "../../assets/images/home-chat.jpg";
 
-import praxiLabs from "../../assets/images/Praxilabs.png";
-import coSpaces from "../../assets/images/CoSpaces.png";
-import tinkercad from "../../assets/images/Tinkercad.jpg";
-
 import { ReactComponent as GradientShaped } from "../../assets/icons/gradient-shaped-container.svg";
+
+import { EXTERNAL_LABS } from "../../shared/data";
 
 import "./style.css";
 import "../../shared/fonts.css";
+
+const externalLabs = [
+  EXTERNAL_LABS.coSpaces,
+  EXTERNAL_LABS.praxiLabs,
+  EXTERNAL_LABS.tinkerCad,
+];
 
 const Home = () => {
   const handleInputSearch = () => {};
@@ -52,30 +56,21 @@ const Home = () => {
           ofrecerte solo lo mejor.
         </span>
         <div className="flex-container mg-bottom mg-top">
-          <StyledContainer color="#CC3333" className="home__lab-container">
-            <img
-              src={praxiLabs}
-              className="home__lab-icon home__lab-icon--praxi"
-              alt="Praxilabs logo"
-            />
-          </StyledContainer>
-          <StyledContainer
-            color="linear-gradient(to right, #E58B5D, #A63CDF)"
-            className="home__lab-container"
-          >
-            <img
-              src={coSpaces}
-              className="home__lab-icon home__lab-icon--cospaces"
-              alt="CoSpaces Logo"
-            />
-          </StyledContainer>
-          <StyledContainer color="#22B35A" className="home__lab-container">
-            <img
-              src={tinkercad}
-              className="home__lab-icon home__lab-icon--tinker"
-              alt="TinkerCad Logo"
-            />
-          </StyledContainer>
+          {externalLabs.map(({ label, url, icon, color, name }) => (
+            <a href={url} alt={`${label} pagina principal`}>
+              <StyledContainer
+                expandOnHover
+                color={color}
+                className="home__lab-container"
+              >
+                <img
+                  src={icon}
+                  className={`home__lab-icon home__lab-icon--${name}`}
+                  alt={`${label} icon`}
+                />
+              </StyledContainer>
+            </a>
+          ))}
         </div>
       </section>
       <section className="home__section home__section--side">

@@ -1,6 +1,7 @@
 import React from "react";
 
 import Banner from "../../components/banner";
+import StyledContainer from "../../components/styled-container";
 
 import { BANNER_HEIGHT } from "../../shared/constants";
 
@@ -16,10 +17,8 @@ const Lab = (props) => {
         textStyle={{ maxWidth: "100rem" }}
         title={props.title}
       />
-      <section className="learn__section">
-        <h3 className="purple" style={{ fontWeight: 700, fontSize: "3.5rem" }}>
-          ¿Qué te interesa aprender?
-        </h3>
+      <section className="lab__section">
+        <StyledContainer gradient />
       </section>
     </div>
   );
