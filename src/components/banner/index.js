@@ -17,13 +17,10 @@ const Banner = ({
   ...props
 }) => {
   return (
-    <div className={`banner ${className}`} style={style}>
-      <img
-        src={image}
-        style={{ ...imageStyle }}
-        className={`banner-image ${imageClassName}`}
-        alt={alt}
-      />
+    <div
+      className={`banner ${className}`}
+      style={{ ...style, backgroundImage: `url(${image})` }}
+    >
       <div
         className={`banner__text-container ${textClassName}`}
         style={textStyle}

@@ -4,6 +4,24 @@
   line-height: 7rem;
   text-transform: uppercase;
 }
+@media screen and (max-device-width: 850px) {
+  .page-main-title {
+    font-size: 5rem;
+    line-height: 6rem;
+  }
+}
+@media screen and (max-device-width: 650px) {
+  .page-main-title {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+}
+@media screen and (max-device-width: 500px) {
+  .page-main-title {
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
+}
 .page-section-title {
   color: white;
   font-size: 4rem;
@@ -11,19 +29,60 @@
   text-transform: uppercase;
   line-height: 4rem;
 }
+@media screen and (max-device-width: 850px) {
+  .page-section-title {
+    line-height: 3.5rem;
+    font-size: 3.5rem;
+  }
+}
+@media screen and (max-device-width: 650px) {
+  .page-section-title {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
 .page-title-medium {
   color: white;
   font-size: 3rem;
+}
+@media screen and (max-device-width: 850px) {
+  .page-title-medium {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-device-width: 650px) {
+  .page-title-medium {
+    font-size: 2.2rem;
+  }
 }
 .page-sub-title {
   color: white;
   font-size: 2rem;
 }
+@media screen and (max-device-width: 850px) {
+  .page-sub-title {
+    font-size: 1.9rem;
+  }
+}
+@media screen and (max-device-width: 650px) {
+  .page-sub-title {
+    font-size: 1.8rem;
+  }
+}
 .subtitle-medium {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
-
+@media screen and (max-device-width: 850px) {
+  .subtitle-medium {
+    font-size: 2.3rem;
+  }
+}
+@media screen and (max-device-width: 650px) {
+  .subtitle-medium {
+    font-size: 2.1rem;
+  }
+}
 .purple {
   color: #941b80 !important;
 }

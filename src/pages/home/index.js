@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 import SearchComponent from "../../components/search-component";
 import StyledContainer from "../../components/styled-container";
@@ -25,15 +26,19 @@ const externalLabs = [
 
 const Home = () => {
   const handleInputSearch = () => {};
+  const showIcon = useMediaQuery({ query: "(max-device-width:500px)" });
 
   return (
     <main className="home">
-      <div className="home__banner">
-        <img
+      <div
+        className="home__banner"
+        style={{ backgroundImage: `url("${homeBanner}")` }}
+      >
+        {/* <img
           src={homeBanner}
           alt="Dos mujeres viendo una pantalla"
           className="home__banner__img"
-        />
+        /> */}
         <div className="home__title-container">
           <h2 className="page-main-title">
             Un solo puente a tus labs virtuales
@@ -41,7 +46,7 @@ const Home = () => {
         </div>
         <SearchComponent
           className="home__search"
-          type="text"
+          type={showIcon ? "icon" : "text"}
           label="Buscar Labs"
           placeholder="¿Qué te interesa aprender?"
           onClick={handleInputSearch}
@@ -56,8 +61,13 @@ const Home = () => {
           ofrecerte solo lo mejor.
         </span>
         <div className="flex-container mg-bottom mg-top">
-          {externalLabs.map(({ label, url, icon, color, name }) => (
-            <a href={url} alt={`${label} pagina principal`}>
+          {externalLabs.map(({ label, url, icon, color, name }, i) => (
+            <a
+              key={i}
+              href={url}
+              alt={`${label} pagina principal`}
+              style={{ margin: "1rem" }}
+            >
               <StyledContainer
                 expandOnHover
                 color={color}
@@ -80,7 +90,7 @@ const Home = () => {
           className="home__side__image"
         />
         <div className="home__side__text-container">
-          <span className="home__side-title purple">
+          <span className="home__side-title  purple">
             LOS MEJORES LABS VIRTUALES EN UN SOLO LUGAR Y A TU ALCANCE
           </span>
           <Link to="/nosotros">
@@ -97,12 +107,10 @@ const Home = () => {
         </h4>
         <AreasGrid />
       </section>
-      <section className="home__section home__section__secondary-banner">
-        <img
-          src={homeChat}
-          alt="Tres estudiantes platicando"
-          className="home__section__secondary-banner__img"
-        />
+      <section
+        className="home__section home__section__secondary-banner"
+        style={{ backgroundImage: `url(${homeChat})` }}
+      >
         <div className="home__section__secondary-banner__text">
           <span>
             ¡SI,! PUEDES APRENDER
@@ -114,15 +122,15 @@ const Home = () => {
             -Bill Gates
           </span>
         </div>
-      </section>
-      <section className="home__section">
-        <div className="home__regitrate-container purple">
-          <GradientShaped className="home__regitrate-container__svg" />
-          <span>
-            Regístrate hoy,
-            <br />
-            ¡Es gratis!
-          </span>
+        <div className="home__registrate__pos">
+          <div className="home__regitrate-container purple">
+            <GradientShaped className="home__regitrate-container__svg" />
+            <span>
+              Regístrate hoy,
+              <br />
+              ¡Es gratis!
+            </span>
+          </div>
         </div>
       </section>
     </main>

@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
+import { useMediaQuery } from "react-responsive";
+
 import "./style.css";
 import "../../shared/colors.css";
 
 import { ReactComponent as Logo } from "../../assets/icons/logo-white.svg";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
+import { ReactComponent as MenuIcon } from "../../assets/icons/menu.svg";
 
 const Header = ({ selection, ...props }) => {
   const [scrolled, setScrolled] = useState(false);
   const history = useHistory();
+  const burguerNav = useMediaQuery({ query: "(max-device-width:800px)" });
+
+  console.log("change", burguerNav);
+
   useEffect(() => {
     const listener = (e) => {
-      if (!scrolled && window.scrollY > 200) {
+      if (!scrolled && window.scrollY > 150) {
         setScrolled(true);
-      } else if (scrolled && window.scrollY < 200) {
+      } else if (scrolled && window.scrollY < 150) {
         setScrolled(false);
       }
     };
@@ -23,11 +30,37 @@ const Header = ({ selection, ...props }) => {
   }, [scrolled]);
 
   useEffect(() => {
-    console.log("???");
     window.scrollTo(0, 0);
   }, [history.location.pathname]);
 
   // console.log(history);
+
+  if (burguerNav) {
+    return (
+      <header className={`header ${scrolled ? "scrolled" : ""}`}>
+        <div
+          className={`header__bg ${
+            scrolled ? `gradient-bg` : "gradient-transparent"
+          }`}
+        />
+        <Link to="/" className="header__logo-container">
+          <Logo className="header__logo" />
+        </Link>
+        <div className="header__icons--mobile">
+          <Link to="/buscar">
+            <div className="header__icon-container--mobile">
+              <SearchIcon />
+            </div>
+          </Link>
+          <Link to="/buscar">
+            <div className="header__icon-container--mobile">
+              <MenuIcon fill="white" />
+            </div>
+          </Link>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className={`header ${scrolled ? "scrolled" : ""}`}>

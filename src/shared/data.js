@@ -59,7 +59,7 @@ export const LABS_DATA = [
     bannerUrl: scienteBanner,
     description:
       "Simulaciones 3D para los principales experimentos de biología, química y física.",
-    labs: [{ ...praxiLabs }],
+    labs: [{ ...praxiLabs, url: "https://praxilabs.com/en/virtual-labs" }],
   },
   {
     label: "Codificación",
@@ -68,7 +68,10 @@ export const LABS_DATA = [
     SvgComponent: CodeLogo,
     bannerUrl: codeBanner,
     description: "Lenguajes de script mediante sencillos bloques de código.",
-    labs: [{ ...coSpaces }, { ...tinkerCad }],
+    labs: [
+      { ...coSpaces, url: "https://cospaces.io/edu/coding.html" },
+      { ...tinkerCad, url: "https://www.tinkercad.com/learn/codeblocks" },
+    ],
   },
   {
     label: "Diseño 3D",
@@ -77,7 +80,10 @@ export const LABS_DATA = [
     SvgComponent: Design3D,
     bannerUrl: design3dBanner,
     description: "Crea, diseña e imprime tus diseño 3D sin ser un experto.",
-    labs: [{ ...coSpaces }, { ...tinkerCad }],
+    labs: [
+      { ...coSpaces, url: "https://cospaces.io/edu/3d-creation.html" },
+      { ...tinkerCad, url: "https://www.tinkercad.com/learn/designs" },
+    ],
   },
   {
     label: "Electrónica",
@@ -86,7 +92,7 @@ export const LABS_DATA = [
     SvgComponent: Electronics,
     bannerUrl: eletronicsBanner,
     description: "Diseña y programa circuitos electrónicos para tus proyectos.",
-    labs: [{ ...tinkerCad }],
+    labs: [{ ...tinkerCad, url: "https://www.tinkercad.com/learn/circuits" }],
   },
   {
     label: "Realidad Virtual",
@@ -96,7 +102,10 @@ export const LABS_DATA = [
     bannerUrl: virtualRelBanner,
     description:
       "Visualiza tus creaciones en un entorno de realidad virtual 360° y 3D.",
-    labs: [{ ...coSpaces }, { ...tinkerCad }],
+    labs: [
+      { ...coSpaces, url: "https://cospaces.io/edu/ar-vr.html" },
+      { ...tinkerCad, url: "https://www.tinkercad.com/learn" },
+    ],
   },
   {
     label: "Realidad Aumentada",
@@ -106,6 +115,9 @@ export const LABS_DATA = [
     bannerUrl: aumentedRelBanner,
     description:
       "Lleva tus diseños virtuales a la realidad mediante un proyector.",
-    labs: [{ ...coSpaces }, { ...tinkerCad }],
+    labs: [
+      { ...coSpaces, url: "https://cospaces.io/edu/ar-vr.html" },
+      { ...tinkerCad, url: "https://www.tinkercad.com/learn" },
+    ],
   },
 ];

@@ -1,6 +1,11 @@
 .footer {
   padding: 4rem;
 }
+@media screen and (max-device-width: 650px) {
+  .footer {
+    padding: 2rem 3rem;
+  }
+}
 .footer__content {
   width: 100%;
   max-width: 120rem;
@@ -12,21 +17,54 @@
   gap: 1rem;
 }
 
+@media screen and (max-device-width: 650px) {
+  .footer__content {
+    gap: 3rem 1rem;
+  }
+}
+
 .footer__icon {
   width: 15rem;
   height: min-content;
   grid-area: logo;
 }
+@media screen and (max-device-width: 850px) {
+  .footer__icon {
+    width: 12rem;
+  }
+}
+@media screen and (max-device-width: 500px) {
+  .footer__icon {
+    width: 10rem;
+  }
+}
 .footer__list {
   grid-area: list;
   padding: 2rem;
-  border-left: 1px solid white;
+  border-left: 1px solid rgba(255, 255, 255, 0.281);
   width: 30rem;
   font-weight: 400;
+}
+
+@media screen and (max-device-width: 850px) {
+  .footer__list {
+    width: 20rem;
+  }
+}
+@media screen and (max-device-width: 430px) {
+  .footer__list {
+    width: 15rem;
+    padding: 1rem;
+  }
 }
 .footer__list > li {
   list-style: none;
   margin-bottom: 1.5rem;
+}
+@media screen and (max-device-width: 850px) {
+  .footer__list > li {
+    margin-bottom: 1rem;
+  }
 }
 
 .footer__el {
@@ -34,9 +72,26 @@
   color: white;
   text-decoration: none;
 }
+@media screen and (max-device-width: 430px) {
+  .footer__el {
+    font-size: 1.3rem;
+  }
+}
 .footer__rights {
   grid-area: rights;
   justify-self: center;
   font-size: 1.3rem;
   color: white;
+  text-align: center;
+}
+
+@media screen and (max-device-width: 650px) {
+  .footer__rights {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-device-width: 430px) {
+  .footer__rights {
+    font-size: 1rem;
+  }
 }

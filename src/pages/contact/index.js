@@ -20,8 +20,10 @@ const Contact = () => {
   };
   return (
     <div className="contact">
-      <div className="contact__banner">
-        <img src={banner} className="contact__img" alt="" />
+      <div
+        className="contact__banner"
+        style={{ backgroundImage: `url(${banner})` }}
+      >
         <div className="contact__text-container">
           <h2 className="page-main-title">¿PODEMOS AYUDARTE?</h2>
           <span className="page-sub-title">

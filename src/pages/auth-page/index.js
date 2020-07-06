@@ -25,8 +25,7 @@ const AuthPage = ({ type = "signup", ...props }) => {
   };
 
   return (
-    <div className="auth-page">
-      <img src={banner} className="auth_banner" alt="Login to novaplat" />
+    <div className="auth-page" style={{ backgroundImage: `url(${banner})` }}>
       <Link to="/">
         <Logo className="auth-logo" />
       </Link>

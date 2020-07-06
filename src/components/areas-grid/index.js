@@ -9,8 +9,8 @@ import "./style.css";
 const AreasGrid = () => {
   return (
     <div className="areas">
-      {LABS_DATA.map(({ label, name, SvgComponent, link }) => (
-        <Link to={`/aprender/${name}`} className="areas__el--container">
+      {LABS_DATA.map(({ label, name, SvgComponent, link }, i) => (
+        <Link key={i} to={`/aprender/${name}`} className="areas__el--container">
           <StyledContainer gradient expandOnHover className="areas__el">
             <SvgComponent className={`areas__svg areas__svg--${name}`} />
           </StyledContainer>

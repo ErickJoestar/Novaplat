@@ -2,10 +2,14 @@ import React from "react";
 
 import Button from "../button";
 
+import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
+
+// type="icon"
+// Icon={SearchIcon}
+
 import "./style.css";
 const SearchComponent = ({
   type = "icon",
-  Icon,
   label = "",
   placeholder = "",
   className = "",
@@ -20,7 +24,7 @@ const SearchComponent = ({
         lightOnHover
         onClick={onClick}
       >
-        {type === "icon" && <Icon className="search__icon" />}
+        {type === "icon" && <SearchIcon className="search__icon" />}
         {type === "text" && <span className="search__label">{label}</span>}
       </Button>
     </div>

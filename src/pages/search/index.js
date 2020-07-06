@@ -12,12 +12,10 @@ import "../../shared/fonts.css";
 const SearchPage = () => {
   const handleButtonClick = () => {};
   return (
-    <div className="search-page">
-      <img
-        src={bg_image}
-        alt={"Estudiantes aprendiendo"}
-        className="search__image"
-      />
+    <div
+      className="search-page"
+      style={{ backgroundImage: `url(${bg_image})` }}
+    >
       <div className="bg-black-gradient mask" />
       <div className="search__content">
         <div className="search__text-container">

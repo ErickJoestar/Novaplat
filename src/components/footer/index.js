@@ -2,12 +2,16 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import { useMediaQuery } from "react-responsive";
+
 import { ReactComponent as Logo } from "../../assets/icons/logo-white.svg";
 
 import "./style.css";
 import "../../shared/colors.css";
 
 const Footer = () => {
+  const breakFooter = useMediaQuery({ query: "(max-device-width:650px)" });
+
   return (
     <footer className="footer gradient-bg">
       <div className="footer__content">
@@ -39,7 +43,8 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer__rights">
-          Novaplat 2020. Todos los derechos reservados.
+          Novaplat 2020. {breakFooter ? <br /> : ""} Todos los derechos
+          reservados.
         </div>
       </div>
     </footer>

@@ -8,16 +8,9 @@
   grid-template-rows: min-content 1fr min-content;
   grid-template-areas: "logo ." ". content" ". change";
   padding: 5rem;
-}
-
-.auth_banner {
-  width: 100%;
-  margin-right: 0;
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translate(-100%, -50%);
-  z-index: -1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .auth-logo {
   grid-area: logo;
