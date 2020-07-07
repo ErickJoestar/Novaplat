@@ -12,13 +12,13 @@
 @media screen and (max-device-width: 800px) {
   .header {
     display: flex;
-    padding: 2rem 3rem;
+    padding: 1rem 3rem;
     justify-content: space-between;
   }
 }
 @media screen and (max-device-width: 500px) {
   .header {
-    padding: 1.5rem 2rem;
+    padding: 0.8rem 2rem;
   }
 }
 .header.scrolled {
@@ -73,25 +73,18 @@
 }
 
 .header__logo-container {
-  display: block;
+  display: flex block;
   width: 15rem;
+  align-self: center;
 }
 
-@media screen and (max-device-width: 1100px) {
-  .header__logo-container {
-    transform: translateY(5px);
-  }
-}
 @media screen and (max-device-width: 850px) {
   .header__logo-container {
-    transform: translateY(4px);
     width: 12rem;
   }
 }
 @media screen and (max-device-width: 500px) {
   .header__logo-container {
-    transform: translateY(3px);
-
     width: 10rem;
   }
 }
@@ -122,24 +115,129 @@
   width: 1.6rem;
   transform: translateY(3px);
 }
-
-.header__icon-container--mobile {
-  width: 3.5rem;
-  margin-left: 3rem;
-  fill: white !important;
-}
 .header__icons--mobile {
   display: flex;
 }
+.header__icon-container--mobile {
+  fill: white !important;
+  padding: 1rem 2rem;
+}
+.header__icon-container--mobile > svg {
+  width: 2rem;
+}
+
 @media screen and (max-device-width: 850px) {
   .header__icon-container--mobile {
-    width: 2.5rem;
-    margin-left: 2.5rem;
+    padding: 1rem 2rem;
   }
 }
 @media screen and (max-device-width: 500px) {
   .header__icon-container--mobile {
-    width: 2rem;
-    margin-left: 3rem;
+    padding: 1rem 2rem;
+  }
+}
+
+/* Burger menu styles */
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  width: 100% !important;
+  max-width: 40rem;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: linear-gradient(to left, #941b80, #2ea8d3);
+  padding: 1rem 3rem;
+  display: flex;
+}
+@media screen and (max-device-width: 500px) {
+  .bm-menu {
+    padding: 0.8rem 2rem;
+  }
+}
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.header__burger__icons {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  outline: none !important;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+}
+
+.header__burguer__controls-container {
+  display: flex;
+}
+
+.header__burger__items-container {
+  padding: 5rem 0;
+  list-style: none;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: flex-start;
+  outline: none !important;
+}
+.header__burger__items-container--bottom {
+  flex: 1 1;
+  justify-content: flex-end;
+}
+.header__burger__item > a {
+  border: 1px solid rgba(200, 200, 200, 0.6);
+  padding: 1rem 1.5rem;
+  border-radius: 0 1rem 0 1rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.header__burger__item:not(:last-child) {
+  margin-bottom: 2rem;
+}
+@media screen and (max-device-width: 600px) {
+  .header__burger__item:not(:last-child) {
+    margin-bottom: 1.8rem;
+  }
+}
+@media screen and (max-device-width: 600px) {
+  .header__burger__item:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.header__burger__item > a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+}
+@media screen and (max-device-width: 600px) {
+  .header__burger__item > a {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-device-width: 400px) {
+  .header__burger__item > a {
+    font-size: 1.4rem;
   }
 }

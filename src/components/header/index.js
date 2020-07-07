@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
+import { slide as MobileMenu } from "react-burger-menu";
+import StyledContainer from "../styled-container";
+
 import { useMediaQuery } from "react-responsive";
 
 import "./style.css";
@@ -9,13 +12,14 @@ import "../../shared/colors.css";
 import { ReactComponent as Logo } from "../../assets/icons/logo-white.svg";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as MenuIcon } from "../../assets/icons/menu.svg";
+import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
 
 const Header = ({ selection, ...props }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
+
   const history = useHistory();
   const burguerNav = useMediaQuery({ query: "(max-device-width:800px)" });
-
-  console.log("change", burguerNav);
 
   useEffect(() => {
     const listener = (e) => {
@@ -30,35 +34,74 @@ const Header = ({ selection, ...props }) => {
   }, [scrolled]);
 
   useEffect(() => {
+    setOpenMenu(false);
     window.scrollTo(0, 0);
   }, [history.location.pathname]);
 
-  // console.log(history);
-
   if (burguerNav) {
     return (
-      <header className={`header ${scrolled ? "scrolled" : ""}`}>
-        <div
-          className={`header__bg ${
-            scrolled ? `gradient-bg` : "gradient-transparent"
-          }`}
-        />
-        <Link to="/" className="header__logo-container">
-          <Logo className="header__logo" />
-        </Link>
-        <div className="header__icons--mobile">
-          <Link to="/buscar">
-            <div className="header__icon-container--mobile">
-              <SearchIcon />
+      <React.Fragment>
+        <MobileMenu isOpen={openMenu} right>
+          <div className="header__burger__icons">
+            <div className="header__logo-container">
+              <Logo className="header__logo" />
             </div>
+            <div className="header__burguer__controls-container">
+              <Link to="/" className="header__icon-container--mobile">
+                <SearchIcon />
+              </Link>
+              <div
+                className="header__icon-container--mobile"
+                onClick={() => setOpenMenu(false)}
+              >
+                <CloseIcon fill="white" />
+              </div>
+            </div>
+          </div>
+          <ul className="header__burger__items-container">
+            <li className="header__burger__item">
+              <Link to="/aprender">Aprendizaje</Link>
+            </li>
+            <li className="header__burger__item">
+              <Link to="/nosotros">Nosotros</Link>
+            </li>
+            <li className="header__burger__item">
+              <Link to="/contacto">Contacto</Link>
+            </li>
+          </ul>
+          <ul className="header__burger__items-container header__burger__items-container--bottom">
+            <li className="header__burger__item">
+              <Link to="/login">Inicial sesion</Link>
+            </li>
+            <li className="header__burger__item">
+              <Link to="/signup">Registrarse</Link>
+            </li>
+          </ul>
+        </MobileMenu>
+        <header className={`header ${scrolled ? "scrolled" : ""}`}>
+          <div
+            className={`header__bg ${
+              scrolled ? `gradient-bg` : "gradient-transparent"
+            }`}
+          />
+          <Link to="/" className="header__logo-container">
+            <Logo className="header__logo" />
           </Link>
-          <Link to="/buscar">
-            <div className="header__icon-container--mobile">
+          <div className="header__icons--mobile">
+            <Link to="/buscar">
+              <div className="header__icon-container--mobile">
+                <SearchIcon />
+              </div>
+            </Link>
+            <div
+              className="header__icon-container--mobile"
+              onClick={() => setOpenMenu(!openMenu)}
+            >
               <MenuIcon fill="white" />
             </div>
-          </Link>
-        </div>
-      </header>
+          </div>
+        </header>
+      </React.Fragment>
     );
   }
 
