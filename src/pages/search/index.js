@@ -1,6 +1,9 @@
 import React from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 import SearchComponent from "../../components/search-component";
+import Banner from "../../components/banner";
 
 import bg_image from "../../assets/images/search-image.jpg";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
@@ -11,6 +14,28 @@ import "../../shared/fonts.css";
 
 const SearchPage = () => {
   const handleButtonClick = () => {};
+  const changeBanner = useMediaQuery({ query: "(max-device-width:800px)" });
+
+  if (changeBanner)
+    return (
+      <div className="search-page-mobile">
+        <Banner
+          image={bg_image}
+          title="¿Qué te interesa aprender?"
+          subtitle="Coloca las palabras claves en el buscador."
+        />
+        <section className="search-page__section">
+          <div className="search-page__search-container">
+            <SearchComponent
+              type="icon"
+              Icon={SearchIcon}
+              onClick={handleButtonClick}
+              placeholder="Busca un lab aqui"
+            />
+          </div>
+        </section>
+      </div>
+    );
   return (
     <div
       className="search-page"

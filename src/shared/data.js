@@ -82,6 +82,8 @@ export const LABS_DATA = [
     description: "Crea, diseña e imprime tus diseño 3D sin ser un experto.",
     labs: [
       { ...coSpaces, url: "https://cospaces.io/edu/3d-creation.html" },
+      { ...coSpaces, url: "https://cospaces.io/edu/3d-creation.html" },
+      { ...coSpaces, url: "https://cospaces.io/edu/3d-creation.html" },
       { ...tinkerCad, url: "https://www.tinkercad.com/learn/designs" },
     ],
   },

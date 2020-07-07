@@ -4,12 +4,14 @@
   padding: 1rem;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .styled-container--back {
   padding: 3px;
   border-radius: 0 10px 0 10px;
   display: inline-block;
+  position: relative;
 }
 
 .styled-container--back--expand {

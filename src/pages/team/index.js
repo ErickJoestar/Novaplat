@@ -1,17 +1,19 @@
 import React from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 import Banner from "../../components/banner";
 
 import banner from "../../assets/images/nosotros-banner.jpg";
 import team from "../../assets/images/nosotros-team.jpg";
-
-import { BANNER_HEIGHT } from "../../shared/constants";
 
 import "./style.css";
 import "../../shared/colors.css";
 import "../../shared/fonts.css";
 
 const Team = () => {
+  const breakLine = useMediaQuery({ query: "(max-device-width:850px)" });
+
   return (
     <div className="team">
       <Banner
@@ -19,7 +21,6 @@ const Team = () => {
         title="Somos el puente a tus labs virtuales"
         subtitle="Te ayudamos a localizar tu lab virtual que necesitas para llevar tus
             proyectos a la realidad."
-        style={{ height: BANNER_HEIGHT }}
       />
       <section>
         <div className="team__about">
@@ -30,7 +31,9 @@ const Team = () => {
             tecnocreativo virtual que necesitan para llevar a cabo sus proyectos
             escolares, profesionales, de emprendimiento, entretenimiento, etc.
             Nuestra misión es lograr que todos puedan hacer casi cualquier cosa.
-            <span className="purple">¡Anímate a unirte a nosotros!</span>
+            <span className="purple">
+              ${breakLine ? <br /> : ""}¡Anímate a unirte a nosotros!
+            </span>
           </p>
         </div>
         <img

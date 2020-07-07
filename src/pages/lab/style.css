@@ -3,10 +3,32 @@
   max-width: 120rem;
   margin: 10rem auto;
   display: grid;
-  grid-template-columns: min-content 1fr 1fr 1fr;
+  grid-template-columns: min-content 1fr;
   grid-template-rows: min-content min-content;
-  grid-template-areas: "icon-area title title title" "icon-area ext ext ext";
+  grid-template-areas: "icon-area title" "icon-area ext";
   gap: 6.8rem 5rem;
+  padding: 0 1rem;
+}
+@media screen and (max-device-width: 1300px) {
+  .lab__section {
+    gap: 3rem 0rem;
+  }
+}
+@media screen and (max-device-width: 700px) {
+  .lab__section {
+    gap: 0rem 1rem;
+  }
+}
+@media screen and (max-device-width: 600px) {
+  .lab__section {
+    padding: 0 2rem;
+    margin: 5rem auto;
+  }
+}
+@media screen and (max-device-width: 500px) {
+  .lab__section {
+    gap: 0rem 1rem;
+  }
 }
 
 .lab__icon-container {
@@ -20,6 +42,22 @@
   gap: 1rem;
   justify-content: center;
 }
+@media screen and (max-device-width: 600px) {
+  .lab__icon-container {
+    padding: 1.8rem 0.9rem;
+    width: 23rem;
+    height: 25.2rem;
+    font-size: 1.6rem;
+  }
+}
+@media screen and (max-device-width: 450px) {
+  .lab__icon-container {
+    padding: 1.5rem 0.8rem;
+    width: 18rem;
+    height: auto;
+    font-size: 1.5rem;
+  }
+}
 
 .lab__icon-container--ext {
   grid-area: icon-area;
@@ -32,22 +70,74 @@
   justify-self: center;
   align-self: center;
 }
-
-.lab__section__title {
-  grid-area: title;
+@media screen and (max-device-width: 650px) {
+  .lab__icon-svg {
+    width: 8.5rem;
+  }
+}
+@media screen and (max-device-width: 450px) {
+  .lab__icon-svg {
+    width: 7rem;
+  }
 }
 
 .lab__section__title {
   font-size: 4rem;
   font-weight: 800;
   line-height: 4rem;
+  grid-area: title;
 }
-
+@media screen and (max-device-width: 850px) {
+  .lab__section__title {
+    font-size: 3rem;
+    line-height: 3rem;
+    transform: translateY(-2rem);
+  }
+}
+@media screen and (max-device-width: 700px) {
+  .lab__section__title {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+@media screen and (max-device-width: 500px) {
+  .lab__section__title {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+@media screen and (max-device-width: 450px) {
+  .lab__section__title {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+  }
+}
 .lab__grid {
   grid-area: ext;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 4rem;
+}
+@media screen and (max-device-width: 1300px) {
+  .lab__grid {
+    gap: 4rem 2rem;
+  }
+}
+@media screen and (max-device-width: 1050px) {
+  .lab__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 2rem;
+  }
+}
+@media screen and (max-device-width: 850px) {
+  .lab__grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (max-device-width: 500px) {
+  .lab__grid {
+    gap: 1.5rem;
+  }
 }
 .lab__grid__el-container {
   position: relative;
@@ -62,6 +152,31 @@
   justify-content: center;
 }
 
+@media screen and (max-device-width: 850px) {
+  .lab__grid-el {
+    width: 30rem;
+    height: 19rem;
+  }
+}
+@media screen and (max-device-width: 700px) {
+  .lab__grid-el {
+    width: 22rem;
+    height: 14.5rem;
+  }
+}
+@media screen and (max-device-width: 500px) {
+  .lab__grid-el {
+    width: 19rem;
+    height: 12.5rem;
+  }
+}
+@media screen and (max-device-width: 400px) {
+  .lab__grid-el {
+    width: 15.5rem;
+    height: 9rem;
+  }
+}
+
 .lab__grid-el__img {
   height: 100%;
   margin: 0 auto;
@@ -74,11 +189,18 @@
   left: 100%;
   transform: translateY(-100%);
   background-color: blue;
-  margin-left: -1rem;
+  margin-left: 1rem;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 10rem;
   transition: all 0.2s;
+}
+@media screen and (max-device-width: 450px) {
+  .lab__grid-el__plus {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-left: 0.8rem;
+  }
 }
 
 .lab__grid-el__plus:hover {
@@ -86,27 +208,33 @@
   cursor: pointer;
 }
 
-.lab__grid-el__plus::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1.7rem;
-  height: 4.5px;
-  background-color: white;
-  border-radius: 5px;
-}
+.lab__grid-el__plus::after,
 .lab__grid-el__plus::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 1.7rem;
-  width: 4.5px;
   background-color: white;
   border-radius: 5px;
+}
+.lab__grid-el__plus::after {
+  width: 1.7rem;
+  height: 4.5px;
+}
+.lab__grid-el__plus::before {
+  height: 1.7rem;
+  width: 4.5px;
+}
+@media screen and (max-device-width: 450px) {
+  .lab__grid-el__plus::after {
+    width: 1.3rem;
+    height: 3px;
+  }
+  .lab__grid-el__plus::before {
+    height: 1.3rem;
+    width: 3px;
+  }
 }
 
 /* Ajustes menores */

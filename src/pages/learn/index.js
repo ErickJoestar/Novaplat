@@ -5,7 +5,6 @@ import Banner from "../../components/banner";
 import AreasGrid from "../../components/areas-grid";
 import Lab from "../lab";
 
-import { BANNER_HEIGHT } from "../../shared/constants";
 import { LABS_DATA } from "../../shared/data";
 
 import learnBanner from "../../assets/images/learn-banner.jpg";
@@ -21,7 +20,6 @@ const Learn = () => {
         <Route exact path={path}>
           <Banner
             image={learnBanner}
-            style={{ height: BANNER_HEIGHT }}
             textStyle={{ maxWidth: "100rem" }}
             title="Hoy es un buen día para crear algo nuevo"
             subtitle="Te ayudamos a hacer realidad tus proyectos."

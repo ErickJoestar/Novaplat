@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import { slide as MobileMenu } from "react-burger-menu";
-import StyledContainer from "../styled-container";
 
 import { useMediaQuery } from "react-responsive";
 

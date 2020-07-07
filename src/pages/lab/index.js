@@ -3,8 +3,6 @@ import React, { useEffect } from "react";
 import Banner from "../../components/banner";
 import StyledContainer from "../../components/styled-container";
 
-import { BANNER_HEIGHT } from "../../shared/constants";
-
 import "./style.css";
 import "../../shared/fonts.css";
 const Lab = ({
@@ -28,7 +26,6 @@ const Lab = ({
     <div className="lab-page">
       <Banner
         image={bannerUrl}
-        style={{ height: BANNER_HEIGHT }}
         textStyle={{ maxWidth: "100rem" }}
         title={title}
       />
@@ -41,7 +38,7 @@ const Lab = ({
           <SvgComponent className="lab__icon-svg" />
           <p>{description}</p>
         </StyledContainer>
-        <h3 className=" lab__section__title purple">
+        <h3 className="lab__section__title purple">
           Labs Recomendados <br /> para este aprendizaje
         </h3>
         <div className="lab__grid">
@@ -51,6 +48,7 @@ const Lab = ({
                 <StyledContainer
                   expandOnHover
                   className="lab__grid-el"
+                  extClassName="lab__grid-el--ext"
                   color={data.color}
                 >
                   <img
@@ -58,13 +56,13 @@ const Lab = ({
                     alt={label}
                     className={`lab__grid-el__img lab__grid-el__img--${data.name}`}
                   />
+                  <div
+                    className="lab__grid-el__plus"
+                    style={{ background: data.color }}
+                    onClick={() => handleLabClick(data)}
+                  />
                 </StyledContainer>
               </a>
-              <div
-                className="lab__grid-el__plus"
-                style={{ background: data.color }}
-                onClick={() => handleLabClick(data)}
-              />
             </div>
           ))}
         </div>
