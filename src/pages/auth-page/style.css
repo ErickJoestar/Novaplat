@@ -49,10 +49,19 @@
 }
 .auth__change__button {
   width: 15rem;
+  margin: 0 auto;
+  /* margin-bottom: 1rem; */
 }
 
 .auth__input {
   width: 40rem;
+  transition: color 0.2s;
+}
+.auth__form--signup .auth__input {
+  width: 100%;
+}
+.auth__input::placeholder {
+  color: #ddd !important;
 }
 
 .auth__form {
@@ -62,7 +71,16 @@
   text-align: left;
   margin-top: 2rem;
 }
-
+.auth__form--signup {
+  display: grid;
+  grid-template-columns: 30rem 30rem;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas: ". ." ". ." ". ." ". ." "btn btn";
+  gap: 1.5rem 2rem;
+}
+.auth__form--signup .auth__field-container {
+  margin-bottom: 0;
+}
 .auth__form__error {
   color: white !important;
 }
@@ -110,11 +128,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin-top: 1rem;
+  grid-area: btn;
 }
 .auth__controls > a {
   text-decoration: none;
   color: white;
   font-size: 1.5rem;
+}
+
+.input__select {
+  color: rgb(230, 230, 230) !important;
+}
+.input__select:focus {
+  color: rgb(54, 54, 54) !important;
 }
