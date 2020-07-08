@@ -14,18 +14,20 @@ const Button = (props) => {
     shaped,
     className,
     children,
+    disabled = false,
     ...newProps
   } = props;
 
   return (
     <button
+      disabled={disabled}
       className={`${className || " "} button ${
         outline ? "outline" : "filled"
       } ${gradient ? "button-gradient gradient-bg" : " "} ${
         popOnHover ? "button-pop" : " "
       } ${lightOnHover ? "button-light" : " "} ${
         shaped ? "button-shaped" : " "
-      }  `}
+      }  ${disabled ? "button-disabled" : ""}`}
       {...newProps}
     >
       {children}

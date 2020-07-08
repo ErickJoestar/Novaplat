@@ -34,7 +34,6 @@ export const EXTERNAL_LABS = {
     name: "coSpaces",
     label: "CoSpaces",
     url: "https://cospaces.io/edu/",
-
     icon: coSpacesImage,
     color: "linear-gradient(to right, #E58B5D, #A63CDF)",
   },
@@ -42,7 +41,6 @@ export const EXTERNAL_LABS = {
     name: "tinkerCad",
     label: "TinkerCad",
     url: "https://www.tinkercad.com/things",
-
     icon: tinkercadImage,
     color: "#22B35A",
   },

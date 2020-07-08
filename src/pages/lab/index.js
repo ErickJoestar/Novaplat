@@ -18,7 +18,9 @@ const Lab = ({
     window.scrollTo(0, 0);
   }, []);
 
-  const handleLabClick = (data) => {
+  const handleLabClick = (data, event) => {
+    event.stopPropagation();
+    event.preventDefault();
     console.log(data);
     alert(`No pasa nada todavia :P, ${JSON.stringify(data)}`);
   };
@@ -44,25 +46,26 @@ const Lab = ({
         <div className="lab__grid">
           {labs.map((data, i) => (
             <div key={i} className="lab__grid__el-container">
-              <a href={data.url}>
-                <StyledContainer
-                  expandOnHover
-                  className="lab__grid-el"
-                  extClassName="lab__grid-el--ext"
-                  color={data.color}
-                >
+              <StyledContainer
+                expandOnHover
+                className="lab__grid-el"
+                extClassName="lab__grid-el--ext"
+                color={data.color}
+              >
+                <a href={data.url}>
                   <img
                     src={data.icon}
                     alt={label}
                     className={`lab__grid-el__img lab__grid-el__img--${data.name}`}
                   />
-                  <div
-                    className="lab__grid-el__plus"
-                    style={{ background: data.color }}
-                    onClick={() => handleLabClick(data)}
-                  />
-                </StyledContainer>
-              </a>
+                </a>
+
+                <div
+                  className="lab__grid-el__plus"
+                  style={{ background: data.color }}
+                  onClick={(e) => handleLabClick(data, e)}
+                />
+              </StyledContainer>
             </div>
           ))}
         </div>

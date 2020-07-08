@@ -40,14 +40,17 @@
   padding-right: 10rem;
   margin-bottom: 0.5rem;
 }
-
-.auth > a {
+.header__auth {
   color: white;
   font-size: 1.3rem;
   font-weight: 300;
   text-decoration: none;
 }
-.auth > a:not(:last-child) {
+.header__auth:hover {
+  cursor: pointer;
+}
+
+.header__auth:not(:last-child) {
   margin-right: 1.8rem;
 }
 .header__nav {

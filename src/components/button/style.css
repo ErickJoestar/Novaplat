@@ -28,3 +28,7 @@
 .button-gradient {
   color: white;
 }
+
+.button-disabled {
+  filter: grayscale(70%) !important;
+}

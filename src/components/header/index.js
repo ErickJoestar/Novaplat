@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+
+import { AuthContext } from "../../context/auth-context";
 
 import { slide as MobileMenu } from "react-burger-menu";
 
@@ -16,9 +18,15 @@ import { ReactComponent as CloseIcon } from "../../assets/icons/close.svg";
 const Header = ({ selection, ...props }) => {
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const auth = useContext(AuthContext);
 
   const history = useHistory();
   const burguerNav = useMediaQuery({ query: "(max-device-width:800px)" });
+
+  const handleLogout = () => {
+    console.log("???");
+    auth.logout();
+  };
 
   useEffect(() => {
     const listener = (e) => {
@@ -112,12 +120,25 @@ const Header = ({ selection, ...props }) => {
         }`}
       />
       <div className="auth">
-        <Link to="/login" className="header__auth">
-          Inicar sesion
-        </Link>
-        <Link to="/signup" className="header__auth">
-          Registrarse
-        </Link>
+        {auth.token ? (
+          <React.Fragment>
+            <Link to="/cuenta" className="header__auth">
+              Mi cuenta
+            </Link>
+            <span onClick={handleLogout} className="header__auth">
+              Cerrar sesión
+            </span>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <Link to="/login" className="header__auth">
+              Inicar sesion
+            </Link>
+            <Link to="/signup" className="header__auth">
+              Registrarse
+            </Link>
+          </React.Fragment>
+        )}
       </div>
       <nav className="header__nav">
         <Link to="/" className="header__logo-container">

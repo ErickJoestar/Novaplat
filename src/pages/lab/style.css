@@ -176,7 +176,11 @@
     height: 9rem;
   }
 }
-
+.lab__grid-el > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .lab__grid-el__img {
   height: 100%;
   margin: 0 auto;

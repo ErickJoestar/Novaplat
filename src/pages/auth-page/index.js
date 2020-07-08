@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+
+import { AuthContext } from "../../context/auth-context";
+
+import { useHttpClient } from "../../hooks/http-hook";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -17,17 +21,45 @@ import "../../shared/forms.css";
 const AuthPage = ({ type = "signup", ...props }) => {
   const [formType, setType] = useState(type);
   const [remember, setRemember] = useState(false);
-
-  const handleLogin = (data) => {
-    alert(JSON.stringify(data));
-  };
-
-  const handleSignup = (data) => {
-    console.log(data);
-  };
+  const auth = useContext(AuthContext);
+  const history = useHistory();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const handleTypeChange = () => {
     setType(formType === "login" ? "signup" : "login");
+  };
+
+  console.log(auth);
+  const handleLogin = async (data) => {
+    if (isLoading) return;
+    try {
+      const responseData = await sendRequest(
+        "http://localhost:5000/api/users/login",
+        "POST",
+        JSON.stringify({ ...data, labs: [] }),
+        { "Content-Type": "application/json" }
+      );
+      auth.login(responseData.userData, responseData.token);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleSignup = async (data) => {
+    if (isLoading) return;
+    try {
+      const responseData = await sendRequest(
+        "http://localhost:5000/api/users/signup",
+        "POST",
+        JSON.stringify({ ...data, labs: [] }),
+        { "Content-Type": "application/json" }
+      );
+      auth.login(responseData.userData, responseData.token);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -114,9 +146,10 @@ const AuthPage = ({ type = "signup", ...props }) => {
                   gradient
                   popOnHover
                   shaped
+                  disabled={isLoading}
                   className="auth__change__button"
                 >
-                  Iniciar Sesión
+                  {isLoading ? "Iniciando sesion" : "Iniciar Sesión"}
                 </Button>
                 <Link to="/">¿Olvidaste tu contraseña?</Link>
               </div>
@@ -322,9 +355,10 @@ const AuthPage = ({ type = "signup", ...props }) => {
                   gradient
                   popOnHover
                   shaped
+                  disabled={isLoading}
                   className="auth__change__button"
                 >
-                  Regístrate
+                  {isLoading ? "Creando cuenta" : "Regístrate"}
                 </Button>
               </div>
             </Form>
