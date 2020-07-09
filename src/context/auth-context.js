@@ -12,15 +12,21 @@ const AuthProvider = (props) => {
   const [token, setToken] = useState(null);
   const [userData, setUserData] = useState();
 
-  const login = useCallback((userData, token) => {
-    setToken(token);
-    setUserData(userData);
-
+  const saveUser = useCallback((userData, token) => {
     localStorage.setItem(
       "userData",
       JSON.stringify({ ...userData, token: token })
     );
   }, []);
+
+  const login = useCallback(
+    (userData, token) => {
+      setToken(token);
+      setUserData(userData);
+      saveUser(userData, token);
+    },
+    [saveUser]
+  );
 
   const logout = useCallback(() => {
     setToken(null);
@@ -33,7 +39,6 @@ const AuthProvider = (props) => {
     if (storedData && storedData.token) {
       const { token, ...userData } = storedData;
       login(userData, token);
-      console.log(userData);
     }
   }, [login]);
 
@@ -45,6 +50,7 @@ const AuthProvider = (props) => {
         userData: userData,
         login: login,
         logout: logout,
+        saveUser: saveUser,
       }}
     >
       {props.children}

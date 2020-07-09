@@ -26,7 +26,7 @@ const externalLabs = [
 
 const Home = () => {
   const handleInputSearch = () => {};
-  const showIcon = useMediaQuery({ query: "(max-device-width:500px)" });
+  const showIcon = useMediaQuery({ query: "(max-width:500px)" });
 
   return (
     <main className="home">
@@ -34,11 +34,6 @@ const Home = () => {
         className="home__banner"
         style={{ backgroundImage: `url("${homeBanner}")` }}
       >
-        {/* <img
-          src={homeBanner}
-          alt="Dos mujeres viendo una pantalla"
-          className="home__banner__img"
-        /> */}
         <div className="home__title-container">
           <h2 className="page-main-title">
             Un solo puente a tus labs virtuales

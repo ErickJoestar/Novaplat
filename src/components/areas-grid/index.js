@@ -6,10 +6,11 @@ import { LABS_DATA } from "../../shared/data";
 
 import "./style.css";
 
-const AreasGrid = () => {
+const AreasGrid = ({ labs }) => {
+  const labsData = labs || LABS_DATA;
   return (
     <div className="areas">
-      {LABS_DATA.map(({ label, name, SvgComponent, link }, i) => (
+      {labsData.map(({ label, name, SvgComponent, link }, i) => (
         <Link key={i} to={`/aprender/${name}`} className="areas__el--container">
           <StyledContainer gradient expandOnHover className="areas__el">
             <SvgComponent className={`areas__svg areas__svg--${name}`} />

@@ -1,0 +1,24 @@
+.account {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  padding: 3rem 6rem;
+}
+.account__banner-colored {
+  width: 100%;
+  height: 12rem;
+  background: linear-gradient(to left, #941b80, #2ea8d3);
+}
+
+.account__content {
+  padding: 1rem 3rem;
+  text-align: center;
+}
+
+.user-card__button.selected {
+  background-color: transparent;
+  color: white;
+}
+
+.account a {
+  color: black !important;
+}

@@ -1,7 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useContext } from "react";
+
+import { AuthContext } from "../../context/auth-context";
+import { useHttpClient } from "../../hooks/http-hook";
 
 import Banner from "../../components/banner";
 import StyledContainer from "../../components/styled-container";
+import LabsGrid from "../../components/labs-grid";
+import Modal from "../../components/modal";
+
+import { EXTERNAL_LABS } from "../../shared/data";
 
 import "./style.css";
 import "../../shared/fonts.css";
@@ -14,18 +21,61 @@ const Lab = ({
   title,
   description,
 }) => {
+  const [modal, setModal] = useState({ open: false });
+  const auth = useContext(AuthContext);
+  const labsData = labs.map((labId) => EXTERNAL_LABS[labId]);
+  const { sendRequest } = useHttpClient();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleLabClick = (data, event) => {
-    event.stopPropagation();
-    event.preventDefault();
+  const handleAddLab = async () => {
+    const { data } = modal;
+    setModal({ open: false });
     console.log(data);
-    alert(`No pasa nada todavia :P, ${JSON.stringify(data)}`);
+    console.log(auth);
+    const newLabs = [...auth.userData.labs, data.id];
+    console.log(newLabs);
+    try {
+      let res = await sendRequest(
+        `http://localhost:5000/api/users/${auth.userData.id}`,
+        "PATCH",
+        JSON.stringify({ labs: newLabs }),
+        {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
+        }
+      );
+      console.log(res);
+      auth.userData.labs = newLabs;
+      auth.saveUser(auth.userData, auth.token);
+    } catch (err) {
+      alert("No se pudo agregar a tu lista.");
+    }
   };
+
   return (
     <div className="lab-page">
+      {modal.open &&
+        (auth.token ? (
+          <Modal
+            title="Agregar curso"
+            message="¿Quieres agregar este curso a tus laboratorios de aprendizaje?"
+            accepLabel="Aceptar"
+            cancelLabel="Rechazar"
+            onCancel={() => setModal({ open: false })}
+            onAccept={handleAddLab}
+          />
+        ) : (
+          <Modal
+            title="Sesión inválida"
+            message="Tienes que iniciar sesión para añadir este laboratorio en tu perfil."
+            accepLabel="Aceptar"
+            onAccept={() => setModal({ open: false })}
+          />
+        ))}
+
       <Banner
         image={bannerUrl}
         textStyle={{ maxWidth: "100rem" }}
@@ -43,32 +93,11 @@ const Lab = ({
         <h3 className="lab__section__title purple">
           Labs Recomendados <br /> para este aprendizaje
         </h3>
-        <div className="lab__grid">
-          {labs.map((data, i) => (
-            <div key={i} className="lab__grid__el-container">
-              <StyledContainer
-                expandOnHover
-                className="lab__grid-el"
-                extClassName="lab__grid-el--ext"
-                color={data.color}
-              >
-                <a href={data.url}>
-                  <img
-                    src={data.icon}
-                    alt={label}
-                    className={`lab__grid-el__img lab__grid-el__img--${data.name}`}
-                  />
-                </a>
-
-                <div
-                  className="lab__grid-el__plus"
-                  style={{ background: data.color }}
-                  onClick={(e) => handleLabClick(data, e)}
-                />
-              </StyledContainer>
-            </div>
-          ))}
-        </div>
+        <LabsGrid
+          labs={labsData}
+          showAdd
+          onClick={(data) => setModal({ open: true, data })}
+        />
       </section>
     </div>
   );

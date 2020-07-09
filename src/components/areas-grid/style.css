@@ -7,19 +7,19 @@
   grid-auto-rows: 17rem;
   gap: 7rem;
 }
-@media screen and (max-device-width: 1100px) {
+@media screen and (max-width: 1100px) {
   .areas {
     grid-template-columns: 1fr 1fr;
     max-width: 70rem;
   }
 }
-@media screen and (max-device-width: 650px) {
+@media screen and (max-width: 650px) {
   .areas {
     max-width: 50rem;
     gap: 4.5rem 3rem;
     grid-auto-rows: 13rem;
   }
-  @media screen and (max-device-width: 500px) {
+  @media screen and (max-width: 500px) {
     .areas {
       max-width: 40rem;
       gap: 4.5rem 2rem;
@@ -47,7 +47,7 @@
   display: block;
   color: black;
 }
-@media screen and (max-device-width: 650px) {
+@media screen and (max-width: 650px) {
   .areas__el--container > span {
     font-size: 1.8rem;
     margin-top: 0.5rem;
@@ -65,12 +65,12 @@
   transform: scale(1);
 }
 
-@media screen and (max-device-width: 650px) {
+@media screen and (max-width: 650px) {
   .areas__svg {
     width: 7rem;
   }
 }
-@media screen and (max-device-width: 500px) {
+@media screen and (max-width: 500px) {
   .areas__svg {
     width: 5.5rem;
   }

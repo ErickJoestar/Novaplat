@@ -10,7 +10,7 @@ import "./style.css";
 import "../../shared/colors.css";
 
 const Footer = () => {
-  const breakFooter = useMediaQuery({ query: "(max-device-width:650px)" });
+  const breakFooter = useMediaQuery({ query: "(max-width:650px)" });
 
   return (
     <footer className="footer gradient-bg">

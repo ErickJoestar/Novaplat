@@ -1,0 +1,48 @@
+.modal--black {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 199;
+}
+.modal {
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rem;
+  min-height: 15rem;
+  background-color: white;
+  border: 1px solid #444;
+  border-radius: 3px;
+  z-index: 200;
+  text-align: left;
+  overflow: hidden;
+}
+
+.modal__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  display: block;
+  background-color: #ddd;
+  padding: 5px 2rem;
+}
+
+.modal__message {
+  font-size: 1.8rem;
+  padding: 1rem 2rem;
+  display: block;
+}
+.modal__buttons {
+  display: flex;
+  padding: 1rem 2rem;
+  justify-content: flex-end;
+}
+
+.modal__button {
+  width: 10rem;
+  text-align: center;
+  margin-left: 1rem;
+}

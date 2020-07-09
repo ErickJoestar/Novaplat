@@ -21,10 +21,9 @@ const Header = ({ selection, ...props }) => {
   const auth = useContext(AuthContext);
 
   const history = useHistory();
-  const burguerNav = useMediaQuery({ query: "(max-device-width:800px)" });
+  const burguerNav = useMediaQuery({ query: "(max-width:800px)" });
 
   const handleLogout = () => {
-    console.log("???");
     auth.logout();
   };
 

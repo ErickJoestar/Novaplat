@@ -17,7 +17,7 @@ import "../../shared/colors.css";
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const Contact = () => {
-  const changeBanner = useMediaQuery({ query: "(max-device-width:800px)" });
+  const changeBanner = useMediaQuery({ query: "(max-width:800px)" });
 
   const handleSumit = (values, { setSubmiting }) => {
     setTimeout(() => {

@@ -14,7 +14,7 @@ import "../../shared/fonts.css";
 
 const SearchPage = () => {
   const handleButtonClick = () => {};
-  const changeBanner = useMediaQuery({ query: "(max-device-width:800px)" });
+  const changeBanner = useMediaQuery({ query: "(max-width:800px)" });
 
   if (changeBanner)
     return (

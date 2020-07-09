@@ -12,7 +12,7 @@ import "../../shared/colors.css";
 import "../../shared/fonts.css";
 
 const Team = () => {
-  const breakLine = useMediaQuery({ query: "(max-device-width:850px)" });
+  const breakLine = useMediaQuery({ query: "(max-width:850px)" });
 
   return (
     <div className="team">

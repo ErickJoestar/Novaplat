@@ -9,14 +9,14 @@
   transition: all 0.2s;
 }
 
-@media screen and (max-device-width: 800px) {
+@media screen and (max-width: 800px) {
   .header {
     display: flex;
     padding: 1rem 3rem;
     justify-content: space-between;
   }
 }
-@media screen and (max-device-width: 500px) {
+@media screen and (max-width: 500px) {
   .header {
     padding: 0.8rem 2rem;
   }
@@ -61,7 +61,7 @@
   justify-content: space-between;
   transition: all 0.2s;
 }
-@media screen and (max-device-width: 1000px) {
+@media screen and (max-width: 1000px) {
   .header__nav {
     padding: 2rem 7rem;
   }
@@ -69,7 +69,7 @@
 .header.scrolled .header__nav {
   padding: 1rem 5rem;
 }
-@media screen and (max-device-width: 1000px) {
+@media screen and (max-width: 1000px) {
   .header.scrolled .header__nav {
     padding: 1rem 4rem;
   }
@@ -81,12 +81,12 @@
   align-self: center;
 }
 
-@media screen and (max-device-width: 850px) {
+@media screen and (max-width: 850px) {
   .header__logo-container {
     width: 12rem;
   }
 }
-@media screen and (max-device-width: 500px) {
+@media screen and (max-width: 500px) {
   .header__logo-container {
     width: 10rem;
   }
@@ -129,12 +129,12 @@
   width: 2rem;
 }
 
-@media screen and (max-device-width: 850px) {
+@media screen and (max-width: 850px) {
   .header__icon-container--mobile {
     padding: 1rem 2rem;
   }
 }
-@media screen and (max-device-width: 500px) {
+@media screen and (max-width: 500px) {
   .header__icon-container--mobile {
     padding: 1rem 2rem;
   }
@@ -159,7 +159,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 1rem 3rem;
   display: flex;
 }
-@media screen and (max-device-width: 500px) {
+@media screen and (max-width: 500px) {
   .bm-menu {
     padding: 0.8rem 2rem;
   }
@@ -217,12 +217,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .header__burger__item:not(:last-child) {
   margin-bottom: 2rem;
 }
-@media screen and (max-device-width: 600px) {
+@media screen and (max-width: 600px) {
   .header__burger__item:not(:last-child) {
     margin-bottom: 1.8rem;
   }
 }
-@media screen and (max-device-width: 600px) {
+@media screen and (max-width: 600px) {
   .header__burger__item:not(:last-child) {
     margin-bottom: 1.5rem;
   }
@@ -234,12 +234,12 @@ Note: Beware of modifying this element as it can break the animations - you shou
   color: white;
   text-transform: uppercase;
 }
-@media screen and (max-device-width: 600px) {
+@media screen and (max-width: 600px) {
   .header__burger__item > a {
     font-size: 1.8rem;
   }
 }
-@media screen and (max-device-width: 400px) {
+@media screen and (max-width: 400px) {
   .header__burger__item > a {
     font-size: 1.4rem;
   }

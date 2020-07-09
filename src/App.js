@@ -9,6 +9,7 @@ import Search from "./pages/search";
 import Team from "./pages/team";
 import AuthPage from "./pages/auth-page";
 import Learn from "./pages/learn";
+import Account from "./pages/account";
 
 import DefaultView from "./views/default-view";
 
@@ -44,6 +45,11 @@ const App = () => {
             <Route path="/aprender">
               <DefaultView selection="learn">
                 <Learn />
+              </DefaultView>
+            </Route>
+            <Route exact path="/cuenta">
+              <DefaultView>
+                <Account />
               </DefaultView>
             </Route>
             <Route exact path="/login">
