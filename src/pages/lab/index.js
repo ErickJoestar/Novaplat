@@ -26,6 +26,7 @@ const Lab = ({
   const labsData = labs.map((labId) => EXTERNAL_LABS[labId]);
   const { sendRequest } = useHttpClient();
 
+  console.log(process.env);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -39,7 +40,7 @@ const Lab = ({
     console.log(newLabs);
     try {
       let res = await sendRequest(
-        `http://localhost:5000/api/users/${auth.userData.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/users/${auth.userData.id}`,
         "PATCH",
         JSON.stringify({ labs: newLabs }),
         {

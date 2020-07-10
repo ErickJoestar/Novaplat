@@ -30,6 +30,7 @@ const Account = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [image, setImage] = useState(null);
 
+  console.log(process.env.REACT_APP_ASSET_URL);
   console.log(auth);
 
   useEffect(() => {
@@ -75,7 +76,7 @@ const Account = () => {
 
     try {
       const responseData = await sendRequest(
-        `http://localhost:5000/api/users/${auth.userData.id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/users/${auth.userData.id}`,
         "PATCH",
         formData,
         {
@@ -105,7 +106,7 @@ const Account = () => {
           {...auth.userData}
           image={
             auth.userData
-              ? `http://localhost:5000/${auth.userData.image}`
+              ? `${process.env.REACT_APP_ASSETS_URL}/${auth.userData.image}`
               : undefined
           }
           onOptionsClick={() => setOption("config")}
