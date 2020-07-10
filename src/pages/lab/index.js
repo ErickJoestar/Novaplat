@@ -48,8 +48,9 @@ const Lab = ({
         }
       );
       console.log(res);
-      auth.userData.labs = newLabs;
-      auth.saveUser(auth.userData, auth.token);
+      const newUserData = { ...auth.userData };
+      newUserData.labs = newLabs;
+      auth.saveUser(newUserData, auth.token);
     } catch (err) {
       alert("No se pudo agregar a tu lista.");
     }

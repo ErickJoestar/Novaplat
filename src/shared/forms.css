@@ -35,3 +35,19 @@
   outline: none;
   color: white !important;
 }
+.disable-auto-styles--black input:-webkit-autofill,
+.disable-auto-styles--black input:-webkit-autofill:hover,
+.disable-auto-styles--black input:-webkit-autofill:focus,
+.disable-auto-styles--black textarea:-webkit-autofill,
+.disable-auto-styles--black textarea:-webkit-autofill:hover,
+.disable-auto-styles--black textarea:-webkit-autofill:focus,
+.disable-auto-styles--black select:-webkit-autofill,
+.disable-auto-styles--black select:-webkit-autofill:hover,
+.disable-auto-styles--black select:-webkit-autofill:focus {
+  -webkit-text-fill-color: black;
+  box-shadow: none;
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent;
+  outline: none;
+  color: black !important;
+}

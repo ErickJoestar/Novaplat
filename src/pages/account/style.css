@@ -22,3 +22,38 @@
 .account a {
   color: black !important;
 }
+
+.account__form {
+  margin: 2rem 5rem;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: start;
+  gap: 1rem;
+}
+
+.account__form > label {
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-align: left;
+}
+
+.account__input-container {
+  max-width: 30rem;
+}
+
+.account__input-container--big {
+  max-width: 50rem;
+}
+.account__input {
+  font-size: 1.6rem;
+  padding: 0.8rem 1rem;
+  width: 100%;
+}
+
+.account__form__button {
+  margin-top: 1rem;
+}
+.account__input__image-container {
+  width: 30rem;
+  margin-left: 5rem;
+}

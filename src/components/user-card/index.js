@@ -19,15 +19,14 @@ const UserCard = ({
   onOptionsClick,
   ...props
 }) => {
-  image = false;
+  console.log(image);
   return (
     <StyledContainer squared gradient className={`user-card ${className}`}>
       <SettingsIcon onClick={onOptionsClick} className="user-card__settings" />
-      <div
-        className="user-card__image-container"
-        style={image ? { backgroundImage: `url(${image})` } : {}}
-      >
-        {!image && (
+      <div className="user-card__image-container">
+        {image ? (
+          <img src={image} alt="user" className="user-card__image" />
+        ) : (
           <DefaultImage className="user-card__image user-card__image--svg" />
         )}
       </div>

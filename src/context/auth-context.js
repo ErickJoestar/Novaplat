@@ -6,6 +6,7 @@ export const AuthContext = createContext({
   userData: null,
   login: () => {},
   logout: () => {},
+  saveUser: () => {},
 });
 
 const AuthProvider = (props) => {
