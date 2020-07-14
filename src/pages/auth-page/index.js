@@ -47,10 +47,8 @@ const AuthPage = ({ type = "signup", ...props }) => {
   };
 
   const handleSignup = async (data) => {
-    console.log("Click");
     if (isLoading) return;
     try {
-      console.log("Abr");
       const responseData = await sendRequest(
         process.env.REACT_APP_BACKEND_URL + "/users/signup",
         "POST",

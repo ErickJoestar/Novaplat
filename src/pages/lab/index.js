@@ -26,7 +26,6 @@ const Lab = ({
   const labsData = labs.map((labId) => EXTERNAL_LABS[labId]);
   const { sendRequest } = useHttpClient();
 
-  console.log(process.env);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -34,10 +33,7 @@ const Lab = ({
   const handleAddLab = async () => {
     const { data } = modal;
     setModal({ open: false });
-    console.log(data);
-    console.log(auth);
     const newLabs = [...auth.userData.labs, data.id];
-    console.log(newLabs);
     try {
       let res = await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/users/${auth.userData.id}`,
@@ -48,7 +44,6 @@ const Lab = ({
           Authorization: "Bearer " + auth.token,
         }
       );
-      console.log(res);
       const newUserData = { ...auth.userData };
       newUserData.labs = newLabs;
       auth.saveUser(newUserData, auth.token);
