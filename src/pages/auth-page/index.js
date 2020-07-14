@@ -55,7 +55,6 @@ const AuthPage = ({ type = "signup", ...props }) => {
         JSON.stringify({ ...data, labs: [] }),
         { "Content-Type": "application/json" }
       );
-      console.log(responseData);
       auth.login(responseData.userData, responseData.token);
       history.goBack();
     } catch (err) {
