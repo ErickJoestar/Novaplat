@@ -18,12 +18,13 @@ const AuthProvider = (props) => {
       "userData",
       JSON.stringify({ ...userData, token: token })
     );
+    setUserData(userData);
   }, []);
 
   const login = useCallback(
     (userData, token) => {
       setToken(token);
-      setUserData(userData);
+      // setUserData(userData);
       saveUser(userData, token);
     },
     [saveUser]

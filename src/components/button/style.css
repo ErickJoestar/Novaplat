@@ -33,3 +33,8 @@
 .button-disabled {
   filter: grayscale(70%) !important;
 }
+.button.outline {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}

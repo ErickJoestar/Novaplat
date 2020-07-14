@@ -30,9 +30,6 @@ const Account = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [image, setImage] = useState(null);
 
-  console.log(process.env.REACT_APP_ASSET_URL);
-  console.log(auth);
-
   useEffect(() => {
     if (!auth.token) return;
 
@@ -105,7 +102,7 @@ const Account = () => {
         <UserCard
           {...auth.userData}
           image={
-            auth.userData
+            auth.userData && auth.userData.image
               ? `${process.env.REACT_APP_ASSETS_URL}/${auth.userData.image}`
               : undefined
           }
@@ -155,13 +152,19 @@ const Account = () => {
           {auth.userData && option === "areas" && (
             <React.Fragment>
               <h3 className="subtitle-medium purple">Áreas de aprendizaje.</h3>
-              <AreasGrid labs={areas} />
+              <AreasGrid
+                labs={areas}
+                elementClassName="areas-grid__element"
+                showLabel={false}
+              />
             </React.Fragment>
           )}
           {auth.userData && option === "labs" && (
             <React.Fragment>
               <h3 className="subtitle-medium purple">Tus laboratorios.</h3>
-              <LabsGrid labs={labs} />
+              <div className="flex-container">
+                <LabsGrid labs={labs} elementClassName="labs-grid__element" />
+              </div>
             </React.Fragment>
           )}
           {auth.userData && option === "config" && (

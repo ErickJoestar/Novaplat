@@ -12,6 +12,22 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media screen and (max-width: 1000px) {
+  .auth-page {
+    height: auto;
+    min-height: 100vh;
+  }
+}
+@media screen and (max-width: 750px) {
+  .auth-page {
+    background: linear-gradient(to left, #941b80, #2ea8d3);
+    grid-template-columns: 1fr;
+    grid-template-areas: "content" "change";
+    padding: 0;
+    padding-top: 20rem;
+    gap: 10rem;
+  }
+}
 .auth-logo {
   grid-area: logo;
   width: 20rem;
@@ -78,8 +94,21 @@
   grid-template-areas: ". ." ". ." ". ." ". ." "btn btn";
   gap: 1.5rem 2rem;
 }
+@media screen and (max-width: 1000px) {
+  .auth__form--signup {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+}
 .auth__form--signup .auth__field-container {
   margin-bottom: 0;
+}
+@media screen and (max-width: 1000px) {
+  .auth__form--signup .auth__field-container {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 }
 .auth__form__error {
   color: white !important;

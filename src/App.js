@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import AuthProvider from "./context/auth-context";
 
+import { useMediaQuery } from "react-responsive";
+
 import Home from "./pages/home";
 import Contact from "./pages/contact";
 import Search from "./pages/search";
@@ -16,6 +18,8 @@ import DefaultView from "./views/default-view";
 import "./App.css";
 
 const App = () => {
+  const changeAuthPage = useMediaQuery({ query: "(max-width:750px)" });
+
   return (
     <div className="App">
       <AuthProvider>
@@ -53,10 +57,22 @@ const App = () => {
               </DefaultView>
             </Route>
             <Route exact path="/login">
-              <AuthPage type="login" />
+              {changeAuthPage ? (
+                <DefaultView>
+                  <AuthPage type="login" />
+                </DefaultView>
+              ) : (
+                <AuthPage type="login" />
+              )}
             </Route>
             <Route exact path="/signup">
-              <AuthPage type="signup" />
+              {changeAuthPage ? (
+                <DefaultView>
+                  <AuthPage type="signup" />
+                </DefaultView>
+              ) : (
+                <AuthPage type="signup" />
+              )}
             </Route>
           </Switch>
         </Router>

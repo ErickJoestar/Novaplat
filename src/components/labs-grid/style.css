@@ -1,0 +1,128 @@
+.lab__grid {
+  grid-area: ext;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.lab__grid__el-container {
+  position: relative;
+  margin: 0.5rem;
+  width: 25rem;
+  height: 14.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+@media screen and (max-width: 850px) {
+  .lab__grid__el-container {
+    width: 22rem;
+    height: 12.5rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .lab__grid__el-container {
+    width: 18rem;
+    height: 11.5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .lab__grid__el-container {
+    width: 19rem;
+    height: 12.5rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .lab__grid__el-container {
+    width: 15.5rem;
+    height: 9rem;
+  }
+}
+.lab__grid-el--ext {
+  width: 100%;
+  height: 100%;
+}
+
+.lab__grid-el {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.lab__grid-el > a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.lab__grid-el__img {
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.lab__grid-el__plus {
+  background-color: blue;
+  margin-left: 3px;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  transition: all 0.2s;
+  position: relative;
+}
+@media screen and (max-width: 450px) {
+  .lab__grid-el__plus {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-left: 0.8rem;
+  }
+}
+
+.lab__grid-el__plus:hover {
+  transform: translateY(-1px) scale(1.05);
+  cursor: pointer;
+}
+
+.lab__grid-el__plus::after,
+.lab__grid-el__plus::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 5px;
+}
+.lab__grid-el__plus::after {
+  width: 1.5rem;
+  height: 4px;
+}
+.lab__grid-el__plus::before {
+  height: 1.5rem;
+  width: 4px;
+}
+@media screen and (max-width: 450px) {
+  .lab__grid-el__plus::after {
+    width: 1.3rem;
+    height: 3px;
+  }
+  .lab__grid-el__plus::before {
+    height: 1.3rem;
+    width: 3px;
+  }
+}
+
+/* Ajustes menores */
+
+.lab__grid-el__img--tinkerCad {
+  height: auto;
+  width: 100%;
+}

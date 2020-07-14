@@ -19,6 +19,11 @@
     font-size: 55%;
   }
 }
+@media screen and (max-width: 350px) {
+  :root {
+    font-size: 45%;
+  }
+}
 
 body {
   margin: 0;

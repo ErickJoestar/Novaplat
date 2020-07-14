@@ -53,7 +53,7 @@ const Header = ({ selection, ...props }) => {
               <Logo className="header__logo" />
             </div>
             <div className="header__burguer__controls-container">
-              <Link to="/" className="header__icon-container--mobile">
+              <Link to="/buscar" className="header__icon-container--mobile">
                 <SearchIcon />
               </Link>
               <div
@@ -75,14 +75,27 @@ const Header = ({ selection, ...props }) => {
               <Link to="/contacto">Contacto</Link>
             </li>
           </ul>
-          <ul className="header__burger__items-container header__burger__items-container--bottom">
-            <li className="header__burger__item">
-              <Link to="/login">Inicial sesion</Link>
-            </li>
-            <li className="header__burger__item">
-              <Link to="/signup">Registrarse</Link>
-            </li>
-          </ul>
+          {auth.token ? (
+            <ul className="header__burger__items-container header__burger__items-container--bottom">
+              <li className="header__burger__item">
+                <Link to="/cuenta">Mi cuenta</Link>
+              </li>
+              <li className="header__burger__item">
+                <Link to="/" onClick={handleLogout}>
+                  Cerrar sesión
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            <ul className="header__burger__items-container header__burger__items-container--bottom">
+              <li className="header__burger__item">
+                <Link to="/login">Inicial sesion</Link>
+              </li>
+              <li className="header__burger__item">
+                <Link to="/signup">Registrarse</Link>
+              </li>
+            </ul>
+          )}
         </MobileMenu>
         <header className={`header ${scrolled ? "scrolled" : ""}`}>
           <div

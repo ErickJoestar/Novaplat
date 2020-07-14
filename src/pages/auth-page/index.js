@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../../context/auth-context";
 
 import { useHttpClient } from "../../hooks/http-hook";
+import { useMediaQuery } from "react-responsive";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -25,6 +26,7 @@ const AuthPage = ({ type = "signup", ...props }) => {
   const auth = useContext(AuthContext);
   const history = useHistory();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const changeStructure = useMediaQuery({ query: "(max-width:750px)" });
 
   const handleTypeChange = () => {
     setType(formType === "login" ? "signup" : "login");
@@ -45,17 +47,22 @@ const AuthPage = ({ type = "signup", ...props }) => {
   };
 
   const handleSignup = async (data) => {
+    console.log("Click");
     if (isLoading) return;
     try {
+      console.log("Abr");
       const responseData = await sendRequest(
         process.env.REACT_APP_BACKEND_URL + "/users/signup",
         "POST",
         JSON.stringify({ ...data, labs: [] }),
         { "Content-Type": "application/json" }
       );
+      console.log(responseData);
       auth.login(responseData.userData, responseData.token);
       history.goBack();
-    } catch (err) {}
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -68,16 +75,22 @@ const AuthPage = ({ type = "signup", ...props }) => {
           message="Hubo un error al momento de autenticar tu cuenta, por favor vuelve a intentar."
         />
       )}
-      <div className="auth-page" style={{ backgroundImage: `url(${banner})` }}>
-        <Link to="/">
-          <Logo className="auth-logo" />
-        </Link>
+      <div
+        className="auth-page"
+        style={changeStructure ? null : { backgroundImage: `url(${banner})` }}
+      >
+        {!changeStructure && (
+          <Link to="/">
+            <Logo className="auth-logo" />
+          </Link>
+        )}
         <div className="auth_change">
           <span>
             {formType === "login" ? "¿No tienes cuenta?" : "¿Ya tienes cuenta?"}
           </span>
           <Button
-            gradient
+            gradient={!changeStructure}
+            outline={changeStructure}
             popOnHover
             shaped
             className="auth__change__button"
@@ -148,7 +161,8 @@ const AuthPage = ({ type = "signup", ...props }) => {
                 <div className="auth__controls">
                   <Button
                     type="submit"
-                    gradient
+                    gradient={!changeStructure}
+                    outline={changeStructure}
                     popOnHover
                     shaped
                     disabled={isLoading}
@@ -357,7 +371,8 @@ const AuthPage = ({ type = "signup", ...props }) => {
                 <div className="auth__controls">
                   <Button
                     type="submit"
-                    gradient
+                    gradient={!changeStructure}
+                    outline={changeStructure}
                     popOnHover
                     shaped
                     disabled={isLoading}
