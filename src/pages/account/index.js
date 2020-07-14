@@ -52,9 +52,7 @@ const Account = () => {
   }, [auth]);
 
   const handleImageUpload = (file, isValid) => {
-    console.log(file, isValid);
     if (file.size > 500000) {
-      console.log("Demasiado grande!");
     } else {
       setImage(file);
     }
@@ -64,7 +62,6 @@ const Account = () => {
     if (isLoading) return;
     const formData = new FormData();
     for (let key in data) {
-      console.log(key);
       formData.append(key, data[key]);
     }
     if (image) {
@@ -80,7 +77,6 @@ const Account = () => {
           Authorization: "Bearer " + auth.token,
         }
       );
-      console.log(responseData);
       auth.login(responseData, auth.token);
     } catch (err) {
       console.log(err);

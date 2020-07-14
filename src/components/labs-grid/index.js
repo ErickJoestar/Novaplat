@@ -11,7 +11,6 @@ const LabsGrid = ({
   elementClassName = "",
   elementStyle = {},
 }) => {
-  console.log(labs);
   return (
     <div className={`lab__grid ${className}`}>
       {labs.map((data, i) => (
