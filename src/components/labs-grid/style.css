@@ -15,7 +15,7 @@
   height: 14.5rem;
   display: flex;
   align-items: flex-end;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 850px) {

@@ -35,7 +35,7 @@ const Lab = ({
     setModal({ open: false });
     const newLabs = [...auth.userData.labs, data.id];
     try {
-      let res = await sendRequest(
+      await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/users/${auth.userData.id}`,
         "PATCH",
         JSON.stringify({ labs: newLabs }),
