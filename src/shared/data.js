@@ -153,14 +153,7 @@ export const LABS_DATA = [
     bannerUrl: scienteBanner,
     description:
       "Simulaciones 3D para los principales experimentos de biología, química y física.",
-    labs: [
-      "praxiLabs_ciencia",
-      "praxiLabs_ciencia",
-      "praxiLabs_ciencia",
-      "praxiLabs_ciencia",
-      "praxiLabs_ciencia",
-      "praxiLabs_ciencia",
-    ],
+    labs: ["praxiLabs_ciencia"],
   },
   {
     label: "Codificación",
